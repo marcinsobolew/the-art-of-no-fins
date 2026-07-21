@@ -490,7 +490,7 @@
             { date: "July 5, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "Consistency check post-Ireland trip." },
             { date: "July 4, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "Rodzinny wyjazd z dziećmi do Irlandii. Odpoczywam z wałkiem 😂" },
             { date: "July 3, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "June 28, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "Kopaniu z całej siły. Zatrzymanie przed finalnym kopnięciem w dół. Plan awaryjny po the end." },
+            { date: "June 28, 2026", title: "Progress information", activity: "Progress Note", version: "v1.1 (Legs)", sets: [], notes: "Kopaniu z całej siły. Zatrzymanie przed finalnym kopnięciem w dół. Plan awaryjny po the end." },
             { date: "June 28, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET P 4 (pool fun)"], notes: "Pool lab focus on narrow knees." },
             { date: "June 27, 2026", title: "Bike & Strength", activity: "Outdoor / Bike / Running", version: "—", sets: ["PREP SHORT", "RECOVERY"], notes: "Bike 10km and mobility prep." },
             { date: "June 26, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
@@ -705,7 +705,7 @@
             document.getElementById('setModal').classList.add('hidden');
         }
 
-        // RENDER LOGS TABLE WITH NEW VERSION COLUMN CELL
+        // RENDER LOGS TABLE WITH VERSION COLUMN CELL
         function renderLogs(filter = 'all') {
             const tbody = document.getElementById('logTableBody');
             tbody.innerHTML = '';
@@ -724,7 +724,7 @@
                     activityBadge = `<span class="bg-slate-800 text-slate-300 px-2 py-0.5 rounded-md text-[11px]">${log.activity}</span>`;
                 }
 
-                // Render Version Badge (Only active for Daily Lab Review entries)
+                // Render Version Badge for ANY entry that specifies a version
                 let versionStr = log.version || '—';
                 let versionBadge = '';
                 if (versionStr !== '—') {
