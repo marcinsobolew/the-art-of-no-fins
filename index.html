@@ -1,836 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Art of No-Fins | Biomechanics & Method</title>
-    <!-- Tailwind CSS for UI styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- MathJax for rendering biomechanical formulas -->
-    <script>
-        window.MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-            svg: { fontCache: 'global' }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .font-montserrat { font-family: 'Montserrat', sans-serif; }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CNF Biomechanical Research Log</title>
+  <style>
+    /* Visual styles */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #38bdf8;
+      margin-bottom: 6px;
+    }
+    p.subtitle {
+      color: #94a3b8;
+      margin-top: 0;
+      margin-bottom: 24px;
+    }
+
+    /* Quick filters (buttons) */
+    .filter-container {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-label {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+    .filter-btn {
+      background: #1e293b;
+      color: #cbd5e1;
+      border: 1px solid #334155;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: #38bdf8;
+      color: #0f172a;
+      border-color: #38bdf8;
+      font-weight: bold;
+    }
+
+    /* Log Table */
+    .table-wrapper {
+      overflow-x: auto;
+      background: #1e293b;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #334155;
+      font-size: 0.9rem;
+    }
+    th {
+      background: #1e293b;
+      color: #94a3b8;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr:hover {
+      background: #26334d;
+    }
+
+    /* Version Labels and Tags */
+    .version-tag {
+      background: #0284c7;
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .tag {
+      background: #334155;
+      color: #38bdf8;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-right: 4px;
+      display: inline-block;
+    }
+    .author-tag {
+      color: #f59e0b;
+      font-weight: 600;
+    }
+  </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between">
+<body>
 
-    <!-- HEADER NAVBAR -->
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
-            <div class="flex items-center gap-3">
-                <div class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></div>
-                <span class="font-montserrat font-bold text-base md:text-lg tracking-wider text-cyan-400">THE ART OF NO-FINS</span>
-            </div>
-            
-            <!-- TOP NOTION-STYLE NAVIGATION -->
-            <nav class="flex items-center gap-3 text-xs text-slate-400 font-medium overflow-x-auto py-1">
-                <button onclick="switchTab('technique')" id="nav-technique" class="hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5">TECHNIQUE</button>
-                <span>|</span>
-                <button onclick="switchTab('drills')" id="nav-drills" class="hover:text-cyan-400 transition-colors">⚡ DRILLS & SETS</button>
-                <span>|</span>
-                <button onclick="switchTab('logs')" id="nav-logs" class="hover:text-cyan-400 transition-colors">📋 EXPERIMENTAL LOG</button>
-            </nav>
-        </div>
-    </header>
+  <div class="container">
+    <h1>🧪 CNF Experimental Logs</h1>
+    <p class="subtitle">Biomechanical research database, training logs, and version testing.</p>
 
-    <main class="max-w-6xl w-full mx-auto px-4 py-8 flex-grow">
-        
-        <!-- SECTION 1: TECHNIQUE DASHBOARD VIEW -->
-        <div id="tab-technique">
-            <!-- WELCOME HERO SECTION -->
-            <div class="text-center md:text-left mb-8">
-                <span class="text-xs font-bold text-cyan-400 bg-cyan-950/60 border border-cyan-800 px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-3">Freediving Mechanics & Training</span>
-                <h1 class="font-montserrat text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4">
-                    The Art of <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-purple-400">No-Fins</span>
-                </h1>
-                <p class="text-slate-400 text-base md:text-lg max-w-3xl">
-                    Mastering No-Fins swimming through biomechanics, streamlined drag reduction, and structured pool testing.
-                </p>
-            </div>
-
-            <!-- LIVE SEARCH & TAG FILTERING BAR -->
-            <section class="bg-slate-900 border border-cyan-500/30 rounded-2xl p-6 mb-10 shadow-xl shadow-cyan-950/20">
-                <div class="mb-4">
-                    <label for="searchInput" class="block text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">🔍 Instant Search in Knowledge Base</label>
-                    <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="Search 'legs', 'arms', 'glide', 'timing', 'ankles', 'catch'..." class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors">
-                </div>
-
-                <!-- TAG CLOUDS / QUICK FILTERS -->
-                <div>
-                    <span class="text-xs text-slate-400 mr-2">Filter by Component:</span>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <button onclick="setFilter('all')" class="tag-btn text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1 rounded-full transition-colors active-tag" data-tag="all">#all</button>
-                        <button onclick="setFilter('legs')" class="tag-btn text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-cyan-400 px-3 py-1 rounded-full transition-colors" data-tag="legs">🦵 #legs</button>
-                        <button onclick="setFilter('arms')" class="tag-btn text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-amber-400 px-3 py-1 rounded-full transition-colors" data-tag="arms">💪 #arms</button>
-                        <button onclick="setFilter('glide')" class="tag-btn text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-emerald-400 px-3 py-1 rounded-full transition-colors" data-tag="glide">🧘 #glide</button>
-                        <button onclick="setFilter('timing')" class="tag-btn text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-purple-400 px-3 py-1 rounded-full transition-colors" data-tag="timing">⏱️ #timing</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ACTIVE R&D / IN PROGRESS LIST SECTION -->
-            <section class="mb-12 bg-slate-900/80 border border-cyan-500/30 rounded-2xl p-6 shadow-xl">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-2">
-                    <div>
-                        <span class="text-[10px] font-bold text-cyan-400 bg-cyan-950/80 border border-cyan-800 px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-1">
-                            🧪 Active Testing
-                        </span>
-                        <h2 class="font-montserrat text-xl md:text-2xl font-bold text-white m-0 border-none p-0">
-                            Current Lab Focus
-                        </h2>
-                    </div>
-                    <span class="text-xs font-mono text-slate-400 bg-slate-950 px-3 py-1 rounded-lg border border-slate-800">
-                        July 2026
-                    </span>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-                    <!-- Item 1: Sole Clapping Testing -->
-                    <div class="bg-slate-950 border border-amber-900/40 p-4 rounded-xl flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-amber-950/80 border border-amber-800 text-amber-400 flex items-center justify-center shrink-0 font-bold">
-                            <i class="fa-solid fa-vial-circle-check"></i>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <h4 class="font-bold text-white text-sm">Sole Clapping Finish (v1.2)</h4>
-                                <span class="bg-amber-900/50 text-amber-300 border border-amber-800 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase">In Testing</span>
-                            </div>
-                            <p class="text-slate-400 mt-1 leading-relaxed">
-                                Testing kick finish with sole clapping in 25m pool sets and Deepspot. Focusing on foot feel without spreading knees.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Item 2: Spread Fingers Catch -->
-                    <div class="bg-slate-950 border border-purple-900/40 p-4 rounded-xl flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-400 flex items-center justify-center shrink-0 font-bold">
-                            <i class="fa-solid fa-hand"></i>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <h4 class="font-bold text-white text-sm">Spread Fingers Catch (v1.1)</h4>
-                                <span class="bg-purple-900/50 text-purple-300 border border-purple-800 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase">In Testing</span>
-                            </div>
-                            <p class="text-slate-400 mt-1 leading-relaxed">
-                                Testing wide finger separation during catch & pull phase to increase effective water surface grip & propulsive area.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Item 3: Mobility -->
-                    <div class="bg-slate-950 border border-cyan-900/40 p-4 rounded-xl flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-400 flex items-center justify-center shrink-0 font-bold">
-                            <i class="fa-solid fa-arrows-left-right-to-line"></i>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <h4 class="font-bold text-white text-sm">Hip & Ankle Mobility</h4>
-                                <span class="bg-cyan-900/50 text-cyan-300 border border-cyan-800 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase">Daily Practice</span>
-                            </div>
-                            <p class="text-slate-400 mt-1 leading-relaxed">
-                                Floor 90/90 stretches and pool backstroke drills with a noodle under thighs to improve outward hip rotation.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Item 4: BFR Protocols -->
-                    <div class="bg-slate-950 border border-emerald-900/40 p-4 rounded-xl flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-950/80 border border-emerald-800 text-emerald-400 flex items-center justify-center shrink-0 font-bold">
-                            <i class="fa-solid fa-heart-pulse"></i>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <h4 class="font-bold text-white text-sm">BFR Training Sets</h4>
-                                <span class="bg-emerald-900/50 text-emerald-300 border border-emerald-800 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase">Training Protocol</span>
-                            </div>
-                            <p class="text-slate-400 mt-1 leading-relaxed">
-                                Blood flow restriction occlusion sets for legs and triceps to build stamina without muscle tightness.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 4 CORE BIOMECHANICAL COMPONENTS GRID -->
-            <section class="mb-12">
-                <h2 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-6">🎯 The 4 Core Biomechanical Pillars</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="cardGrid">
-                    
-                    <!-- COMPONENT 1: LEGS -->
-                    <div id="card-legs" class="component-card bg-slate-900 border border-slate-800 hover:border-cyan-500/50 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between" data-tags="legs ankles hips eversion whip-kick mistakes v1.1 v1.2">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="text-xs font-bold text-cyan-400 bg-cyan-950/50 border border-cyan-800 px-3 py-1 rounded-full uppercase tracking-wider">Component 1 • Legs</span>
-                                <span class="text-xs text-slate-400 font-mono">v1.1 Active (v1.2 In Testing)</span>
-                            </div>
-                            
-                            <div>
-                                <h3 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-2">1. Legs, Ankles & Hip Rotation</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                    Deep dive into ankle eversion, internal hip rotation, eliminating wide knee drag, and testing sole-clapping mechanics for future integration.
-                                </p>
-                            </div>
-
-                            <div class="flex flex-wrap gap-1.5 mb-6">
-                                <span class="text-[10px] bg-slate-950 border border-slate-800 text-cyan-400 px-2 py-0.5 rounded">#ankles</span>
-                                <span class="text-[10px] bg-slate-950 border border-slate-800 text-emerald-400 px-2 py-0.5 rounded">#hips</span>
-                                <span class="text-[10px] bg-slate-950 border border-slate-800 text-amber-400 px-2 py-0.5 rounded">#whip-kick</span>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col gap-2">
-                            <a href="./1_legs/presentation_legs_v1_1.html" class="flex-grow text-center bg-cyan-500/20 border border-cyan-500/50 hover:bg-cyan-500/30 text-cyan-300 font-bold py-3 px-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
-                                <span>Presentation v1.1</span>
-                                <span class="bg-cyan-950 text-cyan-400 text-[10px] px-2 py-0.5 rounded border border-cyan-800 font-mono uppercase">In Creation 🛠️</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- COMPONENT 2: ARMS -->
-                    <div id="card-arms" class="component-card bg-slate-900 border border-amber-500/30 hover:border-amber-400 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between" data-tags="arms catch pull high-elbow recovery spread-fingers v1.0 v1.1">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="text-xs font-bold text-amber-400 bg-amber-950/50 border border-amber-800 px-3 py-1 rounded-full uppercase tracking-wider">Component 2 • Arms</span>
-                                <span class="text-xs text-slate-400 font-mono">v1.0 Core (v1.1 In Testing)</span>
-                            </div>
-                            
-                            <div>
-                                <h3 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-2">2. Arms Pull & High Elbow Catch</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                    Hydrodynamic analysis of forearm lift force, high elbow catch position, propulsion stroke under chest, and testing spread fingers surface area (v1.1).
-                                </p>
-                            </div>
-
-                            <div class="flex flex-wrap gap-1.5 mb-6">
-                                <span class="text-[10px] bg-slate-950 border border-slate-800 text-amber-400 px-2 py-0.5 rounded">#arms</span>
-                                <span class="text-[10px] bg-slate-950 border border-slate-800 text-amber-400 px-2 py-0.5 rounded">#high-elbow</span>
-                                <span class="text-[10px] bg-slate-950 border border-slate-800 text-purple-400 px-2 py-0.5 rounded">#spread-fingers-v1.1</span>
-                            </div>
-                        </div>
-
-                        <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
-                            <div class="font-bold text-amber-400 mb-1">Key Arm Mechanics:</div>
-                            <ul class="list-disc list-inside space-y-1 text-slate-400">
-                                <li><strong class="text-slate-200">High Elbow Catch:</strong> Forearm angled at $90^\circ$ to stroke direction for max surface area.</li>
-                                <li><strong class="text-slate-200">v1.1 Spread Fingers:</strong> Testing micro-gaps between fingers to increase effective propulsive area.</li>
-                                <li><strong class="text-slate-200">Streamlined Recovery:</strong> Hands slide upward touching ribs/chest to minimize frontal drag.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- COMPONENT 3: GLIDE & AXIS ALIGNMENT -->
-                    <div id="card-glide" class="component-card bg-slate-900 border border-emerald-500/30 hover:border-emerald-400 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between" data-tags="glide axis streamline posture head-position v1.0">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="text-xs font-bold text-emerald-400 bg-emerald-950/50 border border-emerald-800 px-3 py-1 rounded-full uppercase tracking-wider">Component 3 • Glide</span>
-                                <span class="text-xs text-slate-400 font-mono">v1.0 Core</span>
-                            </div>
-                            
-                            <div>
-                                <h3 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-2">3. Axial Alignment & Glide Phase</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                    Every stroke cycle must start and finish locked strictly along a single central trajectory axis, eliminating lumbar arch drag and keeping the head stowed between shoulders.
-                                </p>
-                            </div>
-
-                            <div class="flex flex-wrap gap-1.5 mb-6">
-                                <span class="text-[10px] bg-slate-950 border border-slate-800 text-emerald-400 px-2 py-0.5 rounded">#glide</span>
-                                <span class="text-[10px] bg-slate-950 border border-slate-800 text-cyan-400 px-2 py-0.5 rounded">#axis-lock</span>
-                                <span class="text-[10px] bg-slate-950 border border-slate-800 text-purple-400 px-2 py-0.5 rounded">#start-finish-line</span>
-                            </div>
-                        </div>
-
-                        <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
-                            <div class="font-bold text-emerald-400 mb-1">Axis & Stroke Line Checkpoints:</div>
-                            <ul class="list-disc list-inside space-y-1 text-slate-400">
-                                <li><strong class="text-slate-200">Start & Finish Alignment:</strong> Every stroke sequence begins and resets into the exact same straight axial line.</li>
-                                <li><strong class="text-slate-200">Head Stowage:</strong> Head tucked neutrally between shoulders, eyes looking strictly at the floor/line.</li>
-                                <li><strong class="text-slate-200">Pelvic Neutral:</strong> Core engaged to prevent lumbar arching when transferring momentum into the glide.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- COMPONENT 4: TIMING & CADENCE -->
-                    <div id="card-timing" class="component-card bg-slate-900 border border-purple-500/30 hover:border-purple-400 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between" data-tags="timing cadence transition velocity arrow propulsion v1.0">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="text-xs font-bold text-purple-400 bg-cyan-950/50 border border-cyan-800 px-3 py-1 rounded-full uppercase tracking-wider">Component 4 • Timing</span>
-                                <span class="text-xs text-slate-400 font-mono">v1.0 Core</span>
-                            </div>
-                            
-                            <div>
-                                <h3 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-2">4. Timing & Hydrodynamic Cadence</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                    Initiating the leg kick propulsion (downward drive) precisely when the hands and arms are locked into the streamline arrow position.
-                                </p>
-                            </div>
-
-                            <div class="flex flex-wrap gap-1.5 mb-6">
-                                <span class="text-[10px] bg-slate-950 border border-slate-800 text-purple-400 px-2 py-0.5 rounded">#timing</span>
-                                <span class="text-[10px] bg-slate-950 border border-slate-800 text-cyan-400 px-2 py-0.5 rounded">#arrow-position</span>
-                                <span class="text-[10px] bg-slate-950 border border-slate-800 text-emerald-400 px-2 py-0.5 rounded">#kick-initiation</span>
-                            </div>
-                        </div>
-
-                        <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
-                            <div class="font-bold text-purple-400 mb-1">Key Timing Rule:</div>
-                            <p class="text-slate-400 leading-relaxed">
-                                The main downward leg kick drive begins only after the arms have reached the locked arrow position overhead, ensuring propulsive force is delivered through a fully streamlined body.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-        </div>
-
-        <!-- SECTION 2: EXERCISE SETS & DRILLS LIBRARY VIEW -->
-        <div id="tab-drills" class="hidden">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-                <div>
-                    <h1 class="font-montserrat text-2xl md:text-3xl font-bold text-white flex items-center gap-2">
-                        ⚡ DRILLS & WORKOUT SETS LIBRARY
-                    </h1>
-                    <p class="text-slate-400 text-xs md:text-sm mt-1">
-                        Modular exercise sequences for Legs, Arms, Glide, and Timing. Click any set to view full exercise breakdown.
-                    </p>
-                </div>
-            </div>
-
-            <!-- DRILLS GRID -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" id="drillsGrid">
-                <!-- Card PREP SHORT -->
-                <div class="bg-slate-900 border border-amber-800/60 hover:border-amber-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('PREP SHORT')">
-                    <div>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="bg-amber-950/80 text-amber-400 border border-amber-800 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Dry-Land Prep</span>
-                            <span class="text-slate-500 text-xs font-mono">15 mins</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">PREP SHORT</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Dry-land mobility routine focusing on ankle eversion, hip internal rotation, and core hollow body posture.</p>
-                    </div>
-                    <button class="w-full bg-slate-800 hover:bg-slate-700 text-amber-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
-                        <i class="fa-solid fa-list-ul"></i> View Exercises
-                    </button>
-                </div>
-
-                <!-- Card SET P 4 -->
-                <div class="bg-slate-900 border border-purple-800/60 hover:border-purple-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 4 (pool fun)')">
-                    <div>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="bg-purple-950/80 text-purple-300 border border-purple-800 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Pool Drill</span>
-                            <span class="text-slate-500 text-xs font-mono">4 x 25m</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">SET P 4 (pool fun)</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">In-water drill set testing narrow knee position, whip kick sole clapping, and maximum glide distance per kick.</p>
-                    </div>
-                    <button class="w-full bg-slate-800 hover:bg-slate-700 text-purple-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
-                        <i class="fa-solid fa-water"></i> View Pool Drills
-                    </button>
-                </div>
-
-                <!-- Card RECOVERY -->
-                <div class="bg-slate-900 border border-emerald-800/60 hover:border-emerald-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('RECOVERY')">
-                    <div>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="bg-emerald-950/80 text-emerald-300 border border-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Post-Lab</span>
-                            <span class="text-slate-500 text-xs font-mono">10 mins</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">RECOVERY</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Post-session decompressing set: calf myofascial release, ankle dorsiflexion relief, and spinal traction.</p>
-                    </div>
-                    <button class="w-full bg-slate-800 hover:bg-slate-700 text-emerald-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
-                        <i class="fa-solid fa-heart-pulse"></i> View Recovery Set
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 3: NOTION-STYLE EXPERIMENTAL LOG VIEW -->
-        <div id="tab-logs" class="hidden">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-                <div>
-                    <h1 class="font-montserrat text-2xl md:text-3xl font-bold text-white flex items-center gap-2">
-                        📋 EXPERIMENTAL LOG
-                    </h1>
-                    <p class="text-slate-400 text-xs md:text-sm mt-1">
-                        Daily laboratory & training journal tracking biomechanical changes. Click any <span class="text-cyan-400 font-mono">Set Badge</span> to view details!
-                    </p>
-                </div>
-                <!-- Filter by type -->
-                <div class="flex gap-2 flex-wrap">
-                    <button onclick="filterLogs('all')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-cyan-500 text-slate-950 font-bold">All Logs</button>
-                    <button onclick="filterLogs('Mobility/Streching')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-slate-800 text-emerald-400 font-semibold border border-slate-700">Mobility</button>
-                    <button onclick="filterLogs('Strength & Motoric')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-slate-800 text-amber-400 font-semibold border border-slate-700">Strength</button>
-                    <button onclick="filterLogs('Progress information')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-slate-800 text-purple-400 font-semibold border border-slate-700">Progress Notes</button>
-                </div>
-            </div>
-
-            <!-- NOTION-STYLE DATABASE TABLE -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-xs border-collapse">
-                        <thead>
-                            <tr class="bg-slate-950 text-slate-400 border-b border-slate-800 font-semibold uppercase tracking-wider">
-                                <th class="p-3 w-32"><i class="fa-regular fa-calendar mr-1"></i> Date</th>
-                                <th class="p-3 w-48"><i class="fa-solid fa-align-left mr-1"></i> Session Title</th>
-                                <th class="p-3 w-40"><i class="fa-solid fa-tags mr-1"></i> Activity Type</th>
-                                <th class="p-3 w-56"><i class="fa-solid fa-list-check mr-1"></i> Sets Done</th>
-                                <th class="p-3"><i class="fa-regular fa-note-sticky mr-1"></i> Notes & Key Findings</th>
-                            </tr>
-                        </thead>
-                        <tbody id="logTableBody" class="divide-y divide-slate-800/60 text-slate-200">
-                            <!-- Rows rendered via JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- INTERACTIVE SET DETAILS MODAL -->
-    <div id="setModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-700 w-full max-w-xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
-            <div class="p-5 border-b border-slate-800 flex justify-between items-center bg-slate-950">
-                <div>
-                    <span id="modalSetCategory" class="text-[10px] font-bold px-2 py-0.5 rounded uppercase border">Category</span>
-                    <h3 id="modalSetTitle" class="text-xl font-bold text-white mt-1">Set Title</h3>
-                </div>
-                <button onclick="closeSetModal()" class="text-slate-400 hover:text-white text-xl p-2 rounded-lg hover:bg-slate-800 transition-colors">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="p-6 overflow-y-auto space-y-4 text-xs" id="modalSetBody">
-                <!-- Exercises injected dynamically -->
-            </div>
-            <div class="p-4 border-t border-slate-800 bg-slate-950 text-right">
-                <button onclick="closeSetModal()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-4 py-2 rounded-xl text-xs transition-colors">
-                    Got it / Close
-                </button>
-            </div>
-        </div>
+    <!-- FILTER BUTTONS -->
+    <div class="filter-container">
+      <span class="filter-label">Filter logs:</span>
+      <button class="filter-btn active" onclick="filterLogs('all')">All</button>
+      <button class="filter-btn" onclick="filterLogs('legs')">🦵 #legs</button>
+      <button class="filter-btn" onclick="filterLogs('arms')">💪 #arms</button>
+      <button class="filter-btn" onclick="filterLogs('marek')">👤 #marek</button>
+      <button class="filter-btn" onclick="filterLogs('adam')">👤 #adam</button>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="border-t border-slate-800 bg-slate-950 py-6 text-center text-xs text-slate-500">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>© 2026 The Art of No-Fins. All rights reserved.</p>
-            <p class="text-slate-600">Powered by GitHub Pages & Tailwind CSS</p>
-        </div>
-    </footer>
+    <!-- DATA ENTRY TABLE -->
+    <div class="table-wrapper">
+      <table id="logsTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Log / Person</th>
+            <th>Activity</th>
+            <th>Version</th>
+            <th>Notes & Tags</th>
+          </tr>
+        </thead>
+        <tbody>
 
-    <!-- JS LOGIC -->
-    <script>
-        // DRILLS AND SETS LIBRARY DATABASE
-        const drillsLibrary = {
-            "PREP SHORT": {
-                category: "Dry-Land Mobility",
-                color: "amber",
-                duration: "15 minutes",
-                focus: "Ankle eversion readiness and internal hip rotation warming.",
-                exercises: [
-                    { name: "Ankle Eversion Band Resistance", reps: "3 sets x 12 reps", desc: "Seated with elastic band pulling foot inward, actively invert/evert foot against resistance." },
-                    { name: "90/90 Hip Internal Rotations", reps: "2 sets x 10 reps per side", desc: "Seated on floor in 90/90 position, lift rear ankle while keeping knee down to engage internal hip rotators." },
-                    { name: "Hollow Body Axial Lock Hold", reps: "3 sets x 30 seconds", desc: "Lie flat on back, press lumbar spine flat against floor, tuck chin to lock central axis posture." }
-                ]
-            },
-            "SET P 4 (pool fun)": {
-                category: "In-Water Drills",
-                color: "purple",
-                duration: "4 x 25m Pool",
-                focus: "Narrow knee hydrodynamic tunnel & Whip kick sole clapping.",
-                exercises: [
-                    { name: "25m DNF Legs Only (Knees inside shoulders)", reps: "2 x 25m", desc: "Focus strictly on keeping knees within shoulder shadow during kick preparation." },
-                    { name: "25m Whip Kick Sole Clapping Focus", reps: "2 x 25m", desc: "Exaggerate the final inward sweep, feeling the soles of feet touch gently at the end of kick." }
-                ]
-            },
-            "RECOVERY": {
-                category: "Post-Lab Recovery",
-                color: "emerald",
-                duration: "10 minutes",
-                focus: "Decompressing calves, Achilles tendon, and lower back.",
-                exercises: [
-                    { name: "Fascial Calf & Achilles Foam Rolling", reps: "2 mins per leg", desc: "Slow rolling of gastrocnemius and soleus muscles to release tension." },
-                    { name: "Child Pose with Arm Reach", reps: "2 mins hold", desc: "Decompress spine and lumbar arch while keeping head tucked inward." }
-                ]
-            }
-        };
+          <!-- 🟢 ALWAYS ADD NEW ENTRIES HERE (AT THE TOP, JUST BELOW <tbody>) -->
+          
+          <tr data-tags="legs">
+            <td>22 Jul 2026</td>
+            <td>Daily Lab Review</td>
+            <td>Pool Lab</td>
+            <td><span class="version-tag">Legs v1.1</span></td>
+            <td>Testing narrow knee stance and hip rotation. <span class="tag">#legs</span></td>
+          </tr>
 
-        // PARSED REAL EXPERIMENTAL LOG DATA FROM CSV EXPORT
-        const experimentalLogs = [
-            { date: "July 21, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "lunges, knees to chest, hollow body one arm press, snatch and thrusters" },
-            { date: "July 21, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "Daily lab mobility & pool session." },
-            { date: "July 20, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", sets: [], notes: "15km bike ride." },
-            { date: "July 18, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "July 16, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "Squats 3s3s goblet 20 and 12 lunges (4 rounds)." },
-            { date: "July 15, 2026", title: "Strength-Motoric (1)", activity: "Strength & Motoric", sets: [], notes: "KB alt snatch 17.5kg, overall upper body training session." },
-            { date: "July 15, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "July 13, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "July 13, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT"], notes: "Grabbing ankles still not possible without warm-up." },
-            { date: "July 9, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "Narrow knee tracking and sole clapping practice." },
-            { date: "July 8, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "Squats 3s3s goblet 12 2/2 and 20 lunges (4 rounds)." },
-            { date: "July 5, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "Consistency check post-Ireland trip." },
-            { date: "July 4, 2026", title: "Progress information", activity: "Progress Note", sets: [], notes: "Rodzinny wyjazd z dziećmi do Irlandii. Odpoczywam z wałkiem 😂" },
-            { date: "July 3, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "June 28, 2026", title: "Progress information", activity: "Progress Note", sets: [], notes: "Kopaniu z całej siły. Zatrzymanie przed finalnym kopnięciem w dół. Plan awaryjny po the end." },
-            { date: "June 28, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", sets: ["PREP SHORT", "SET P 4 (pool fun)"], notes: "Pool lab focus on narrow knees." },
-            { date: "June 27, 2026", title: "Bike & Strength", activity: "Outdoor / Bike / Running", sets: ["PREP SHORT", "RECOVERY"], notes: "Bike 10km and mobility prep." },
-            { date: "June 26, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 25, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 24, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: [], notes: "Deepspot session." },
-            { date: "June 22, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "Narrow knee tracking focus." },
-            { date: "June 22, 2026", title: "Bike & BFR", activity: "Outdoor / Bike / Running", sets: [], notes: "Bike 10km and BFR session." },
-            { date: "June 21, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 20, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 20, 2026", title: "Strength & Gym", activity: "Strength & Motoric", sets: [], notes: "Gym strength maintenance." },
-            { date: "June 19, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 18, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 17, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 16, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 15, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 14, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "Shorter pool session. Felt tired and sickness was coming." },
-            { date: "June 13, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 12, 2026", title: "Daily Lab Review", activity: "Pool Lab", sets: ["PREP SHORT", "RECOVERY", "SET P 2 (pool by Marek)"], notes: "Shorter pool session. Felt tired and sickness coming." },
-            { date: "June 11, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 10, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "BFR Triceps isolation." },
-            { date: "June 10, 2026", title: "Daily Lab Review", activity: "Pool Lab", sets: ["PREP SHORT", "RECOVERY", "SET P 2 (pool by Marek)"], notes: "" },
-            { date: "June 9, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 8, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "Good transfer on backstroke kick." },
-            { date: "June 7, 2026", title: "Gym Chest & Hanging", activity: "Strength & Motoric", sets: [], notes: "Gym chest and hanging drills." },
-            { date: "June 7, 2026", title: "Stretching", activity: "Mobility/Streching", sets: [], notes: "Stretching at fitness club." },
-            { date: "June 6, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "BFR session." },
-            { date: "June 6, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 6, 2026", title: "Stretching & Gym", activity: "Mobility/Streching", sets: [], notes: "Stretching at fitness club." },
-            { date: "June 5, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 4, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 3, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "BFR Triceps training." },
-            { date: "June 3, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 2, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 2, 2026", title: "Other", activity: "Other", sets: [], notes: "Chest mobility & strength." },
-            { date: "June 1, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "May 29, 2026 → May 31, 2026", title: "Yoga Retreat", activity: "Other", sets: [], notes: "Yoga retreat & animal flow. 3 days of rest." },
-            { date: "May 28, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "May 27, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 27, 2026", title: "Deepspot Session", activity: "Deepspot", sets: [], notes: "Deepspot. Good session. Two dives, one for me and one for Adam." },
-            { date: "May 26, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "May 26, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "BFR isolation." },
-            { date: "May 25, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "May 24, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", sets: [], notes: "25km bike ride." },
-            { date: "May 24, 2026", title: "Stretching", activity: "Mobility/Streching", sets: [], notes: "Stretching session at local fit club." },
-            { date: "May 24, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "May 23, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "" },
-            { date: "May 23, 2026", title: "Pool Session", activity: "Pool Lab", sets: [], notes: "Pool with Olga." },
-            { date: "May 22, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "Bench squat." },
-            { date: "May 21, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 20, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "General strength work." },
-            { date: "May 20, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "BFR arm work." },
-            { date: "May 19, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "May 18, 2026", title: "Progress information", activity: "Progress Note", sets: [], notes: "Time flies and my technique is changing slowly. I'm feeling more confident about it but ankles and hips are not in the mobility state I'd like them to be." },
-            { date: "May 18, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "" },
-            { date: "May 17, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 16, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 15, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 14, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "May 13, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "Bench squat exercise." },
-            { date: "May 13, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "" },
-            { date: "May 11, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "May 10, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT"], notes: "" },
-            { date: "May 9, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 8, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "At Paweł's training. Skaters squat, some 1/1/4 bench presses." },
-            { date: "May 7, 2026", title: "Deepspot Assessment", activity: "Deepspot", sets: [], notes: "Another session at Deepspot." },
-            { date: "May 6, 2026", title: "Deepspot Video Dives", activity: "Deepspot", sets: [], notes: "Deepspot 20m dives video 15 cycles. Missing ankles, hips, inward sweep and splash. But progress is visible." },
-            { date: "May 5, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 5, 2026", title: "Wingate Test", activity: "Other", sets: [], notes: "Wingate 80% 4x30s - easier than first one." },
-            { date: "May 4, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "May 3, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 2, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", sets: [], notes: "15km bike ride." },
-            { date: "May 1, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", sets: [], notes: "15km bike ride." },
-            { date: "April 30, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "" },
-            { date: "April 30, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "April 29, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "April 28, 2026", title: "Progress information", activity: "Progress Note", sets: [], notes: "BFR lab session with Marta. Whole April I used to ease off from training, but stretching is going well. Easier grabbing ankles when facing floor." },
-            { date: "April 28, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "April 27, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "April 23, 2026 → April 26, 2026", title: "Tatra Hiking", activity: "Outdoor / Bike / Running", sets: [], notes: "Hiking in Tatra mountains." },
-            { date: "April 21, 2026", title: "BFR Test", activity: "Outdoor / Bike / Running", sets: [], notes: "4x30s 640watt BFR test." },
-            { date: "April 15, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", sets: [], notes: "15km bike ride." },
-            { date: "April 15, 2026", title: "Crossfit", activity: "Strength & Motoric", sets: [], notes: "Crossfit 1h." },
-            { date: "April 14, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", sets: [], notes: "25km bike ride." },
-            { date: "April 14, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY"], notes: "" },
-            { date: "April 13, 2026", title: "Wingate Test", activity: "Other", sets: [], notes: "Wingate test 30s. Tired. Interesting feeling afterwards." },
-            { date: "April 13, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["RECOVERY"], notes: "" },
-            { date: "April 12, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["RECOVERY"], notes: "" },
-            { date: "April 11, 2026", title: "Daily Lab Review", activity: "Pool Lab", sets: ["PREP", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "2x45’ in pool. Swimming around on my back and adding arm strokes plus vertical." },
-            { date: "April 10, 2026", title: "Daily Lab Review", activity: "Pool Lab", sets: ["PREP", "SET P 4 (pool fun)"], notes: "Swam on my back with a noodle under thighs. Felt progress in using hips to widen ankles and rotate them." },
-            { date: "April 10, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "" },
-            { date: "April 9, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "April 8, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "April 7, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "Recorded pool sessions, struggling to get nice glide without wetsuit." },
-            { date: "April 7, 2026", title: "Progress information", activity: "Progress Note", sets: [], notes: "It's a tough one to put those puzzles together. Did 3 cycles without wetsuit." },
-            { date: "April 6, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "SET B 1 (bfr)"], notes: "" },
-            { date: "April 5, 2026", title: "Hike / Run", activity: "Outdoor / Bike / Running", sets: [], notes: "Hike/run 10km." },
-            { date: "April 2, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "April 1, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "" },
-            { date: "March 31, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", sets: [], notes: "72km bike ride." },
-            { date: "March 31, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["SET M 1 (mobility)", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "March 30, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP"], notes: "" },
-            { date: "March 30, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", sets: [], notes: "65km bike ride." },
-            { date: "March 29, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["RECOVERY"], notes: "" },
-            { date: "March 29, 2026", title: "Cyprus Trekking", activity: "Outdoor / Bike / Running", sets: [], notes: "Trekking 10km in Cyprus." },
-            { date: "March 28, 2026 → April 6, 2026", title: "Progress information", activity: "Progress Note", sets: [], notes: "Rest from freediving training. Bike, hike & recovered from illness." },
-            { date: "March 28, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["RECOVERY"], notes: "" },
-            { date: "March 26, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", sets: [], notes: "15km bike ride." },
-            { date: "March 25, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "March 24, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "Main exercise 5x back squat 60kg." },
-            { date: "March 24, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "March 23, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "March 22, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "March 22, 2026", title: "Progress information", activity: "Progress Note", sets: [], notes: "Progression visible when slowing down kick movement. 5 cycles without push-off wall. 16 kicks in Deepspot from 20m depth." },
-            { date: "March 22, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY"], notes: "Multiple stretching, always grabbing ankles and stretching shoulder blades." },
-            { date: "March 21, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "3h of stretching and rolling." },
-            { date: "March 20, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "2h fun stretching." },
-            { date: "March 19, 2026", title: "Progress information", activity: "Progress Note", sets: [], notes: "First video analysis of DNF." },
-            { date: "March 19, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "Elevated deadlift 80kg." },
-            { date: "March 19, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 1 (mobility)", "SET P 4 (pool fun)"], notes: "45 min pool, vertical clinic." },
-            { date: "March 18, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "Trying to balance tiredness with fun stretching." },
-            { date: "March 17, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "Front squat 55kg 5x1 rep." },
-            { date: "March 17, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "45min pool & 2h mat." },
-            { date: "March 16, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "BFR session." },
-            { date: "March 16, 2026", title: "Progress information", activity: "Progress Note", sets: [], notes: "A bit of ease this week. Keeping an eye on simple moves and stretching hips and ankles." },
-            { date: "March 16, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET M 1 (mobility)", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "60-70 mins pool with vertical in the end." },
-            { date: "March 15, 2026", title: "Daily Lab", activity: "Mobility/Streching", sets: ["PREP SHORT"], notes: "Stretching and meditation around 2 hours on mat." },
-            { date: "March 15, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "45 min pool session." },
-            { date: "March 14, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY"], notes: "" },
-            { date: "March 13, 2026", title: "Deepspot Assessment", activity: "Deepspot", sets: [], notes: "Deepspot 20m assessment: 16 kicks recorded. Felt tired, technique broke down." },
-            { date: "March 12, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET P 3 (pool by Marek2)"], notes: "" },
-            { date: "March 12, 2026", title: "Progress information", activity: "Progress Note", sets: [], notes: "Hard training with Marek! Progress when swimming on back is crazy." },
-            { date: "March 12, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "Elevated front squat 60kg." },
-            { date: "March 11, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET M 1 (mobility)"], notes: "" },
-            { date: "March 11, 2026", title: "Progress information", activity: "Progress Note", sets: [], notes: "After three meetings with Marek and adding multiple hip stretching exercises, isolation of simple movements gave visible change in my brain." },
-            { date: "March 10, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "Front squat 50kg 4x2 reps." },
-            { date: "March 10, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET P 2 (pool by Marek)"], notes: "" },
-            { date: "March 9, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET P 1 (pool)"], notes: "Felt tired, slow pace vertical clinic." },
-            { date: "March 8, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET B 1 (bfr)", "SET M 1 (mobility)"], notes: "" },
-            { date: "March 7, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET A 1 (daily)"], notes: "" },
-            { date: "March 7, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", sets: [], notes: "Bike 15km." },
-            { date: "March 6, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY"], notes: "" },
-            { date: "March 6, 2026", title: "Pool Lab with Marek", activity: "Pool Lab", sets: ["SET P 2 (pool by Marek)"], notes: "Pool with Marek." },
-            { date: "March 5, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "General motoric session." },
-            { date: "March 5, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET P 1 (pool)"], notes: "" },
-            { date: "March 5, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["SET M 1 (mobility)"], notes: "" },
-            { date: "March 4, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET P 1 (pool)"], notes: "" },
-            { date: "March 3, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET A 1 (daily)"], notes: "" },
-            { date: "March 2, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET A 1 (daily)"], notes: "" },
-            { date: "March 1, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "SET A 1 (daily)"], notes: "" },
-            { date: "March 1, 2026", title: "Strength-Motoric", activity: "BFR Cossack Squats", sets: [], notes: "BFR Cossack squats & BFR triceps." },
-            { date: "February 28, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "SET A 1 (daily)"], notes: "" },
-            { date: "February 27, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET A 1 (daily)", "SET P 1 (pool)"], notes: "" },
-            { date: "February 26, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET A 1 (daily)"], notes: "" },
-            { date: "February 25, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET P 1 (pool)"], notes: "" },
-            { date: "February 24, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "BFR isolation." },
-            { date: "February 24, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET B 1 (bfr)"], notes: "" },
-            { date: "February 23, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "" },
-            { date: "February 23, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET A 1 (daily)"], notes: "" },
-            { date: "February 22, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET A 1 (daily)"], notes: "" },
-            { date: "February 21, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", sets: ["PREP", "RECOVERY", "SET B 1 (bfr)"], notes: "" },
-            { date: "February 21, 2026", title: "Strength-Motoric", activity: "BFR Triceps", sets: [], notes: "" },
-            { date: "February 20, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", sets: ["PREP", "RECOVERY", "SET A 1 (daily)", "SET P 1 (pool)"], notes: "" },
-            { date: "February 19, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "" },
-            { date: "February 19, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", sets: ["PREP", "RECOVERY", "SET P 1 (pool)"], notes: "" },
-            { date: "February 17, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", sets: [], notes: "" },
-            { date: "February 2, 2026 → February 19, 2026", title: "Pool & Strength Isolation", activity: "Mobility/Streching, Strength & Motoric", sets: [], notes: "Isolation exercises before building Notion database." }
-        ];
+          <tr data-tags="legs marek">
+            <td>18 Jul 2026</td>
+            <td><span class="author-tag">[Marek]</span> Deepspot Test</td>
+            <td>Deepspot</td>
+            <td><span class="version-tag">Legs v1.1</span></td>
+            <td>Marek tested hydrodynamic drag during the turn. <span class="tag">#legs</span> <span class="tag">#marek</span></td>
+          </tr>
 
-        // OPEN MODAL FOR SPECIFIC SET DETAILS
-        function openSetModal(setName) {
-            const setObj = drillsLibrary[setName];
-            if (!setObj) return;
+          <tr data-tags="arms adam">
+            <td>15 Jul 2026</td>
+            <td><span class="author-tag">[Adam]</span> Arms Catch Test</td>
+            <td>Gym / Pool</td>
+            <td><span class="version-tag">Arms v1.0</span></td>
+            <td>Checking shoulder girdle mobility before the catch. <span class="tag">#arms</span> <span class="tag">#adam</span></td>
+          </tr>
 
-            document.getElementById('modalSetTitle').innerText = setName;
-            document.getElementById('modalSetCategory').innerText = setObj.category;
-            
-            const catBadge = document.getElementById('modalSetCategory');
-            if (setObj.color === 'amber') {
-                catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-amber-950 border-amber-800 text-amber-400";
-            } else if (setObj.color === 'purple') {
-                catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-purple-950 border-purple-800 text-purple-300";
-            } else {
-                catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-emerald-950 border-emerald-800 text-emerald-300";
-            }
+          <tr data-tags="legs">
+            <td>10 May 2026</td>
+            <td>Pool Session</td>
+            <td>Pool Lab</td>
+            <td><span class="version-tag">Legs v1.0</span></td>
+            <td>Old pattern with wide knee stance for comparison. <span class="tag">#legs</span></td>
+          </tr>
 
-            let exercisesHTML = `<div class="bg-slate-950 p-3 rounded-xl border border-slate-800 mb-4">
-                <span class="text-slate-400 font-bold">Duration:</span> <span class="text-white">${setObj.duration}</span><br>
-                <span class="text-slate-400 font-bold">Biomechanical Focus:</span> <span class="text-cyan-400">${setObj.focus}</span>
-            </div><h4 class="font-bold text-white text-sm mb-2">Exercise Sequence:</h4><div class="space-y-3">`;
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-            setObj.exercises.forEach((ex, idx) => {
-                exercisesHTML += `
-                    <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 flex items-start gap-3">
-                        <div class="w-6 h-6 rounded-full bg-slate-800 text-cyan-400 font-bold flex items-center justify-center shrink-0 text-xs">${idx + 1}</div>
-                        <div>
-                            <div class="flex justify-between items-center">
-                                <h5 class="text-white font-bold text-xs">${ex.name}</h5>
-                                <span class="text-cyan-400 font-mono text-[11px]">${ex.reps}</span>
-                            </div>
-                            <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">${ex.desc}</p>
-                        </div>
-                    </div>
-                `;
-            });
+  <!-- SCRIPT FOR FILTERING VERSIONS AND TAGS -->
+  <script>
+    function filterLogs(tag) {
+      // Change active button
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
 
-            exercisesHTML += `</div>`;
-            document.getElementById('modalSetBody').innerHTML = exercisesHTML;
-            document.getElementById('setModal').classList.remove('hidden');
+      // Filter table rows
+      const rows = document.querySelectorAll('#logsTable tbody tr');
+      rows.forEach(row => {
+        const rowTags = row.getAttribute('data-tags') || '';
+        if (tag === 'all' || rowTags.includes(tag)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
         }
-
-        function closeSetModal() {
-            document.getElementById('setModal').classList.add('hidden');
-        }
-
-        // RENDER LOGS TABLE
-        function renderLogs(filter = 'all') {
-            const tbody = document.getElementById('logTableBody');
-            tbody.innerHTML = '';
-
-            experimentalLogs.forEach(log => {
-                if (filter !== 'all' && !log.activity.includes(filter)) return;
-
-                let activityBadge = '';
-                if (log.activity.includes('Strength')) {
-                    activityBadge = '<span class="bg-amber-950/80 border border-amber-800 text-amber-400 px-2 py-0.5 rounded-md font-semibold text-[11px]">Strength & Motoric</span>';
-                } else if (log.activity.includes('Progress Note')) {
-                    activityBadge = '<span class="bg-purple-950/80 border border-purple-800 text-purple-300 px-2 py-0.5 rounded-md font-semibold text-[11px]">Progress Note</span>';
-                } else if (log.activity.includes('Mobility')) {
-                    activityBadge = '<span class="bg-emerald-950/80 border border-emerald-800 text-emerald-400 px-2 py-0.5 rounded-md font-semibold text-[11px]">Mobility/Stretching</span>';
-                } else {
-                    activityBadge = `<span class="bg-slate-800 text-slate-300 px-2 py-0.5 rounded-md text-[11px]">${log.activity}</span>`;
-                }
-
-                // Interactive Clickable Set Badges
-                const setsBadges = log.sets.length > 0 ? log.sets.map(s => {
-                    if (s.includes('PREP')) {
-                        return `<button onclick="openSetModal('${s}')" class="bg-amber-900/40 hover:bg-amber-800/60 text-amber-300 border border-amber-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${s} 🔍</button>`;
-                    }
-                    if (s.includes('SET P')) {
-                        return `<button onclick="openSetModal('${s}')" class="bg-purple-900/40 hover:bg-purple-800/60 text-purple-300 border border-purple-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${s} 🔍</button>`;
-                    }
-                    if (s.includes('RECOVERY')) {
-                        return `<button onclick="openSetModal('${s}')" class="bg-emerald-900/40 hover:bg-emerald-800/60 text-emerald-300 border border-emerald-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${s} 🔍</button>`;
-                    }
-                    return `<button onclick="openSetModal('${s}')" class="bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1">${s}</button>`;
-                }).join('') : '<span class="text-slate-600 font-mono text-[11px]">—</span>';
-
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-800/40 transition-colors";
-                tr.innerHTML = `
-                    <td class="p-3 text-slate-400 font-mono text-[11px] whitespace-nowrap">${log.date}</td>
-                    <td class="p-3 font-semibold text-white flex items-center gap-1.5">
-                        <i class="fa-regular fa-file-lines text-slate-500"></i> ${log.title}
-                    </td>
-                    <td class="p-3">${activityBadge}</td>
-                    <td class="p-3">${setsBadges}</td>
-                    <td class="p-3 text-slate-300 leading-relaxed">${log.notes}</td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        function filterLogs(type) {
-            renderLogs(type);
-        }
-
-        // TAB SWITCHING (TECHNIQUE VS DRILLS VS LOGS)
-        function switchTab(tab) {
-            const techTab = document.getElementById('tab-technique');
-            const drillsTab = document.getElementById('tab-drills');
-            const logsTab = document.getElementById('tab-logs');
-            
-            const navTech = document.getElementById('nav-technique');
-            const navDrills = document.getElementById('nav-drills');
-            const navLogs = document.getElementById('nav-logs');
-
-            // Reset all tabs
-            techTab.classList.add('hidden');
-            drillsTab.classList.add('hidden');
-            logsTab.classList.add('hidden');
-
-            navTech.className = "hover:text-cyan-400 transition-colors text-slate-400";
-            navDrills.className = "hover:text-cyan-400 transition-colors text-slate-400";
-            navLogs.className = "hover:text-cyan-400 transition-colors text-slate-400";
-
-            if (tab === 'logs') {
-                logsTab.classList.remove('hidden');
-                navLogs.className = "hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5";
-            } else if (tab === 'drills') {
-                drillsTab.classList.remove('hidden');
-                navDrills.className = "hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5";
-            } else {
-                techTab.classList.remove('hidden');
-                navTech.className = "hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5";
-            }
-        }
-
-        // LIVE SEARCH FILTER
-        function filterCards() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.component-card');
-
-            cards.forEach(card => {
-                const tags = card.getAttribute('data-tags').toLowerCase();
-                const textContent = card.innerText.toLowerCase();
-
-                if (tags.includes(input) || textContent.includes(input)) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-            });
-        }
-
-        function setFilter(tag) {
-            const input = document.getElementById('searchInput');
-            if (tag === 'all') {
-                input.value = '';
-            } else {
-                input.value = tag;
-            }
-            filterCards();
-
-            document.querySelectorAll('.tag-btn').forEach(btn => {
-                if (btn.getAttribute('data-tag') === tag) {
-                    btn.classList.add('bg-cyan-500', 'text-slate-950');
-                    btn.classList.remove('bg-slate-800', 'text-slate-300');
-                } else {
-                    btn.classList.remove('bg-cyan-500', 'text-slate-950');
-                    btn.classList.add('bg-slate-800', 'text-slate-300');
-                }
-            });
-        }
-
-        window.onload = function() {
-            renderLogs();
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
-        }
-    </script>
+      });
+    }
+  </script>
 
 </body>
 </html>
