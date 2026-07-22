@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- MathJax for rendering biomechanical formulas -->
+    
     <script>
         window.MathJax = {
             tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
@@ -18,6 +18,7 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
     <style>
         body { font-family: 'Inter', sans-serif; }
         .font-montserrat { font-family: 'Montserrat', sans-serif; }
@@ -29,7 +30,6 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between">
 
-    <!-- HEADER NAVBAR -->
     <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
             <div class="flex items-center gap-3">
@@ -50,7 +50,6 @@
 
     <main class="max-w-6xl w-full mx-auto px-4 py-8 flex-grow">
         
-        <!-- SECTION 1: TECHNIQUE DASHBOARD VIEW -->
         <div id="tab-technique">
             <!-- WELCOME HERO SECTION -->
             <div class="text-center md:text-left mb-8">
@@ -63,7 +62,6 @@
                 </p>
             </div>
 
-            <!-- LIVE SEARCH & TAG FILTERING BAR -->
             <section class="bg-slate-900 border border-cyan-500/30 rounded-2xl p-6 mb-10 shadow-xl shadow-cyan-950/20">
                 <div class="mb-4">
                     <label for="searchInput" class="block text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">🔍 Instant Search in Knowledge Base</label>
@@ -83,7 +81,6 @@
                 </div>
             </section>
 
-            <!-- ACTIVE R&D / IN PROGRESS LIST SECTION -->
             <section class="mb-12 bg-slate-900/80 border border-cyan-500/30 rounded-2xl p-6 shadow-xl">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-2">
                     <div>
@@ -166,7 +163,6 @@
                 </div>
             </section>
 
-            <!-- 4 CORE BIOMECHANICAL COMPONENTS GRID -->
             <section class="mb-12">
                 <h2 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-6">🎯 The 4 Core Biomechanical Pillars</h2>
                 
@@ -300,7 +296,6 @@
             </section>
         </div>
 
-        <!-- SECTION 2: EXERCISE SETS & DRILLS LIBRARY VIEW -->
         <div id="tab-drills" class="hidden">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                 <div>
@@ -313,8 +308,9 @@
                 </div>
             </div>
 
-            <!-- DRILLS GRID -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" id="drillsGrid">
+            <!-- DRILLS GRID WITH ALL 6 SETS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" id="drillsGrid">
+                
                 <!-- Card PREP SHORT -->
                 <div class="bg-slate-900 border border-amber-800/60 hover:border-amber-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('PREP SHORT')">
                     <div>
@@ -323,25 +319,70 @@
                             <span class="text-slate-500 text-xs font-mono">15 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">PREP SHORT</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Dry-land mobility routine focusing on ankle eversion, hip internal rotation, and core hollow body posture.</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Szybka poranna aktywacja rotacji bioder i kostek oraz pozycji Hollow Body przed dniem/treningiem.</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-amber-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-list-ul"></i> View Exercises
                     </button>
                 </div>
 
-                <!-- Card SET P 4 -->
-                <div class="bg-slate-900 border border-purple-800/60 hover:border-purple-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 4 (pool fun)')">
+                <!-- Card PREP FULL -->
+                <div class="bg-slate-900 border border-amber-700/60 hover:border-amber-400 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('PREP FULL')">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-amber-950/80 text-amber-300 border border-amber-700 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Dry-Land Prep</span>
+                            <span class="text-slate-500 text-xs font-mono">30 mins</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">PREP FULL</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Pełne przygotowanie motorowe: głęboka praca nad pozycją Hollow Body i wygaszaniem dominacji czworogłowych.</p>
+                    </div>
+                    <button class="w-full bg-slate-800 hover:bg-slate-700 text-amber-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
+                        <i class="fa-solid fa-list-ul"></i> View Exercises
+                    </button>
+                </div>
+
+                <!-- Card SET P 1 -->
+                <div class="bg-slate-900 border border-cyan-800/60 hover:border-cyan-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 1')">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-cyan-950/80 text-cyan-400 border border-cyan-800 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Pool Drill</span>
+                            <span class="text-slate-500 text-xs font-mono">4 x 25m</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">SET P 1 (Basen)</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Basen: Zatrzymanie & Szybowanie. Skupienie na wyproście nóg i zachowaniu cienia ramion na plecach.</p>
+                    </div>
+                    <button class="w-full bg-slate-800 hover:bg-slate-700 text-cyan-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
+                        <i class="fa-solid fa-water"></i> View Pool Drills
+                    </button>
+                </div>
+
+                <!-- Card SET P 2 -->
+                <div class="bg-slate-900 border border-purple-800/60 hover:border-purple-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 2')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
                             <span class="bg-purple-950/80 text-purple-300 border border-purple-800 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Pool Drill</span>
                             <span class="text-slate-500 text-xs font-mono">4 x 25m</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">SET P 4 (pool fun)</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">In-water drill set testing narrow knee position, whip kick sole clapping, and maximum glide distance per kick.</p>
+                        <h3 class="text-lg font-bold text-white mb-2">SET P 2 (Whip Kick)</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Basen: Whip Kick & Sole Clapping. Praca nad biczowym klaśnięciem podeszwami na koniec ruchu.</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-purple-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-water"></i> View Pool Drills
+                    </button>
+                </div>
+
+                <!-- Card SET B 1 -->
+                <div class="bg-slate-900 border border-rose-800/60 hover:border-rose-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET B 1')">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-rose-950/80 text-rose-300 border border-rose-800 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">BFR Gym</span>
+                            <span class="text-slate-500 text-xs font-mono">20 mins</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">SET B 1 (BFR)</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">BFR Triceps & Legs: Trening w okluzji dla zbudowania wytrzymałości bez spiny mięśniowej.</p>
+                    </div>
+                    <button class="w-full bg-slate-800 hover:bg-slate-700 text-rose-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
+                        <i class="fa-solid fa-dumbbell"></i> View BFR Set
                     </button>
                 </div>
 
@@ -350,19 +391,19 @@
                     <div>
                         <div class="flex justify-between items-center mb-3">
                             <span class="bg-emerald-950/80 text-emerald-300 border border-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Post-Lab</span>
-                            <span class="text-slate-500 text-xs font-mono">10 mins</span>
+                            <span class="text-slate-500 text-xs font-mono">15 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">RECOVERY</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Post-session decompressing set: calf myofascial release, ankle dorsiflexion relief, and spinal traction.</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Regeneracja & Rolowanie: Wieczorne rolowanie stóp, łydek i otwarcie taśmy przedniej (Couch Stretch).</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-emerald-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-heart-pulse"></i> View Recovery Set
                     </button>
                 </div>
+
             </div>
         </div>
 
-        <!-- SECTION 3: NOTION-STYLE EXPERIMENTAL LOG VIEW WITH VERSION COLUMN -->
         <div id="tab-logs" class="hidden">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                 <div>
@@ -406,7 +447,6 @@
 
     </main>
 
-    <!-- INTERACTIVE SET DETAILS MODAL -->
     <div id="setModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
             <div class="p-5 border-b border-slate-800 flex justify-between items-center bg-slate-950">
@@ -429,7 +469,6 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer class="border-t border-slate-800 bg-slate-950 py-6 text-center text-xs text-slate-500">
         <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <p>© 2026 The Art of No-Fins. All rights reserved.</p>
@@ -439,232 +478,111 @@
 
     <!-- JS LOGIC -->
     <script>
-        // DRILLS AND SETS LIBRARY DATABASE
         const drillsLibrary = {
             "PREP SHORT": {
-                category: "Dry-Land Mobility",
+                category: "Dry-Land Prep",
                 color: "amber",
-                duration: "15 minutes",
-                focus: "Ankle eversion readiness and internal hip rotation warming.",
+                duration: "15 mins (Ląd)",
+                focus: "Szybka aktywacja rotacji bioder i kostek przed dniem/treningiem.",
                 exercises: [
-                    { name: "Ankle Eversion Band Resistance", reps: "3 sets x 12 reps", desc: "Seated with elastic band pulling foot inward, actively invert/evert foot against resistance." },
-                    { name: "90/90 Hip Internal Rotations", reps: "2 sets x 10 reps per side", desc: "Seated on floor in 90/90 position, lift rear ankle while keeping knee down to engage internal hip rotators." },
-                    { name: "Hollow Body Axial Lock Hold", reps: "3 sets x 30 seconds", desc: "Lie flat on back, press lumbar spine flat against floor, tuck chin to lock central axis posture." }
+                    { name: "Ankle Eversion Band Resistance", reps: "3 serie x 12 powtórzeń", desc: "Stopa podciągnięta i odkręcona na zewnątrz przeciw oporowi gumy." },
+                    { name: "90/90 Hip Internal Rotations", reps: "2 serie x 10 powtórzeń na stronę", desc: "Unoszenie tylnej kostki przy kolanie dociśniętym do maty." },
+                    { name: "Hollow Body Axial Lock Hold", reps: "3 serie x 30 sekund", desc: "Lędźwie dociśnięte płasko do podłoża, broda lekko schowana." }
                 ]
             },
-            "SET P 4 (pool fun)": {
-                category: "In-Water Drills",
-                color: "purple",
-                duration: "4 x 25m Pool",
-                focus: "Narrow knee hydrodynamic tunnel & Whip kick sole clapping.",
+            "PREP FULL": {
+                category: "Dry-Land Prep",
+                color: "amber",
+                duration: "30 mins (Ląd)",
+                focus: "Pełne przygotowanie motorowe: pozycja Hollow Body i wygaszenie czworogłowych.",
                 exercises: [
-                    { name: "25m DNF Legs Only (Knees inside shoulders)", reps: "2 x 25m", desc: "Focus strictly on keeping knees within shoulder shadow during kick preparation." },
-                    { name: "25m Whip Kick Sole Clapping Focus", reps: "2 x 25m", desc: "Exaggerate the final inward sweep, feeling the soles of feet touch gently at the end of kick." }
+                    { name: "Fascial Quad Rolling (Inhibition)", reps: "2 minuty / noga", desc: "Szybkie, rytmiczne rolowanie mięśnia czworogłowego przed skłonami." },
+                    { name: "Shin Box to Step Through", reps: "3 serie x 8 powtórzeń", desc: "Płynna rotacja bioder przy przejściu z pozycji siedzącej do klęku." },
+                    { name: "Squat Position Internal Knee Taps", reps: "3 serie x 10 powtórzeń", desc: "Głęboki przysiad, naprzemienne opuszczanie kolan do wewnątrz bez odrywania pięt." },
+                    { name: "Scapular Arrow Stretch (Quadruped)", reps: "3 serie x 10 powtórzeń", desc: "Retrakcja łopatek w klęku podpartym do zablokowanej pozycji strzałki." }
+                ]
+            },
+            "SET P 1": {
+                category: "Pool Drill",
+                color: "cyan",
+                duration: "4 x 25m (Basen)",
+                focus: "Basen: Zatrzymanie & Szybowanie. Skupienie na wyproście nóg i zachowaniu cienia ramion na plecach.",
+                exercises: [
+                    { name: "25m Backstroke Stop-Motion Kick", reps: "2 x 25m", desc: "Zatrzymaj ruch na 1 sekundę w momencie gdy pięty dotykają pośladków." },
+                    { name: "25m Streamline Glide Focus", reps: "2 x 25m", desc: "Utrzymuj ręce zablokowane w strzałce; głowa schowana dokładnie między barkami." }
+                ]
+            },
+            "SET P 2": {
+                category: "Pool Drill",
+                color: "purple",
+                duration: "4 x 25m (Basen)",
+                focus: "Basen: Whip Kick & Sole Clapping. Praca nad biczowym klaśnięciem podeszwami na koniec ruchu.",
+                exercises: [
+                    { name: "25m DNF Legs Only (Narrow Knees)", reps: "2 x 25m", desc: "Prowadź kolana wąsko w cieniu ramion, stopy otwieraj szeroko z biodra." },
+                    { name: "25m Whip Kick Sole Clapping Finish", reps: "2 x 25m", desc: "Zwieńcz ruch delikatnym klaśnięciem podeszwami i natychmiastowym przejściem do fazy Glide." }
+                ]
+            },
+            "SET B 1": {
+                category: "BFR Isolation",
+                color: "rose",
+                duration: "20 mins (Siłownia)",
+                focus: "BFR Triceps & Legs: Trening w okluzji dla zbudowania wytrzymałości bez spiny mięśniowej.",
+                exercises: [
+                    { name: "BFR Triceps Overhead Extensions", reps: "4 serie x 30/15/15/15 (ciśnienie 60%)", desc: "Wolna faza ekscentryczna, wysoki łokieć." },
+                    { name: "BFR Cossack Squats / Lunges", reps: "4 serie x 15 powtórzeń na nogę", desc: "Rozciągnięcie taśmy bocznej przy zachowaniu osi prostopadłej." }
                 ]
             },
             "RECOVERY": {
                 category: "Post-Lab Recovery",
                 color: "emerald",
-                duration: "10 minutes",
-                focus: "Decompressing calves, Achilles tendon, and lower back.",
+                duration: "15 mins (Ląd)",
+                focus: "Regeneracja & Rolowanie: Wieczorne rolowanie stóp, łydek i otwarcie taśmy przedniej (Couch Stretch).",
                 exercises: [
-                    { name: "Fascial Calf & Achilles Foam Rolling", reps: "2 mins per leg", desc: "Slow rolling of gastrocnemius and soleus muscles to release tension." },
-                    { name: "Child Pose with Arm Reach", reps: "2 mins hold", desc: "Decompress spine and lumbar arch while keeping head tucked inward." }
+                    { name: "Plantar Fascia Lacrosse Ball Release", reps: "2 minuty / stopa", desc: "Powolne rozmasowywanie łuku stopy kulką." },
+                    { name: "Calf & Soleus Myofascial Rolling", reps: "3 minuty / noga", desc: "Głębokie rolowanie łydki z uginaniem i prostowaniem palców stóp." },
+                    { name: "Couch Stretch (Hip Flexor Release)", reps: "2 minuty / strona", desc: "Kolano przy ścianie, miednica podwinięta w neutralnym ustawieniu." }
                 ]
             }
         };
 
-        // PARSED REAL EXPERIMENTAL LOG DATA WITH VERSION COLUMN FIELD
         const experimentalLogs = [
+            { date: "July 22, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET P 2", "RECOVERY"], notes: "Świetne czucie klaśnięcia podeszwami przy 3 cyklu. Miednica zablokowana." },
             { date: "July 21, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "lunges, knees to chest, hollow body one arm press, snatch and thrusters" },
-            { date: "July 21, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "Daily lab mobility & pool session." },
+            { date: "July 21, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 2"], notes: "Daily lab mobility & pool session." },
             { date: "July 20, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "15km bike ride." },
-            { date: "July 18, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
+            { date: "July 18, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 2"], notes: "" },
             { date: "July 16, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Squats 3s3s goblet 20 and 12 lunges (4 rounds)." },
             { date: "July 15, 2026", title: "Strength-Motoric (1)", activity: "Strength & Motoric", version: "—", sets: [], notes: "KB alt snatch 17.5kg, overall upper body training session." },
-            { date: "July 15, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "July 13, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
+            { date: "July 15, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 2"], notes: "" },
+            { date: "July 13, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 2"], notes: "" },
             { date: "July 13, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT"], notes: "Grabbing ankles still not possible without warm-up." },
-            { date: "July 9, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "Narrow knee tracking and sole clapping practice." },
+            { date: "July 9, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 2"], notes: "Narrow knee tracking and sole clapping practice." },
             { date: "July 8, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Squats 3s3s goblet 12 2/2 and 20 lunges (4 rounds)." },
-            { date: "July 5, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "Consistency check post-Ireland trip." },
+            { date: "July 5, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 2"], notes: "Consistency check post-Ireland trip." },
             { date: "July 4, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "Rodzinny wyjazd z dziećmi do Irlandii. Odpoczywam z wałkiem 😂" },
             { date: "July 3, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
             { date: "June 28, 2026", title: "Progress information", activity: "Progress Note", version: "v1.1 (Legs)", sets: [], notes: "Kopaniu z całej siły. Zatrzymanie przed finalnym kopnięciem w dół. Plan awaryjny po the end." },
-            { date: "June 28, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET P 4 (pool fun)"], notes: "Pool lab focus on narrow knees." },
+            { date: "June 28, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET P 2"], notes: "Pool lab focus on narrow knees." },
             { date: "June 27, 2026", title: "Bike & Strength", activity: "Outdoor / Bike / Running", version: "—", sets: ["PREP SHORT", "RECOVERY"], notes: "Bike 10km and mobility prep." },
-            { date: "June 26, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 25, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
+            { date: "June 26, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 2"], notes: "" },
+            { date: "June 25, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 2"], notes: "" },
             { date: "June 24, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: [], notes: "Deepspot session." },
-            { date: "June 22, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "Narrow knee tracking focus." },
-            { date: "June 22, 2026", title: "Bike & BFR", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "Bike 10km and BFR session." },
-            { date: "June 21, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 20, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 20, 2026", title: "Strength & Gym", activity: "Strength & Motoric", version: "—", sets: [], notes: "Gym strength maintenance." },
-            { date: "June 19, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 18, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 17, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 16, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 15, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 14, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "Shorter pool session. Felt tired and sickness was coming." },
-            { date: "June 13, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 12, 2026", title: "Daily Lab Review", activity: "Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 2 (pool by Marek)"], notes: "Shorter pool session. Felt tired and sickness coming." },
-            { date: "June 11, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 10, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "BFR Triceps isolation." },
-            { date: "June 10, 2026", title: "Daily Lab Review", activity: "Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 2 (pool by Marek)"], notes: "" },
-            { date: "June 9, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 8, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "Good transfer on backstroke kick." },
-            { date: "June 7, 2026", title: "Gym Chest & Hanging", activity: "Strength & Motoric", version: "—", sets: [], notes: "Gym chest and hanging drills." },
-            { date: "June 7, 2026", title: "Stretching", activity: "Mobility/Streching", version: "—", sets: [], notes: "Stretching at fitness club." },
-            { date: "June 6, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "BFR session." },
-            { date: "June 6, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 6, 2026", title: "Stretching & Gym", activity: "Mobility/Streching", version: "—", sets: [], notes: "Stretching at fitness club." },
-            { date: "June 5, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "June 4, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 3, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "BFR Triceps training." },
-            { date: "June 3, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 2, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "June 2, 2026", title: "Other", activity: "Other", version: "—", sets: [], notes: "Chest mobility & strength." },
-            { date: "June 1, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "May 29, 2026 → May 31, 2026", title: "Yoga Retreat", activity: "Other", version: "—", sets: [], notes: "Yoga retreat & animal flow. 3 days of rest." },
-            { date: "May 28, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "May 27, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 27, 2026", title: "Deepspot Session", activity: "Deepspot", version: "—", sets: [], notes: "Deepspot. Good session. Two dives, one for me and one for Adam." },
-            { date: "May 26, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "May 26, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "BFR isolation." },
-            { date: "May 25, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "May 24, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "25km bike ride." },
-            { date: "May 24, 2026", title: "Stretching", activity: "Mobility/Streching", version: "—", sets: [], notes: "Stretching session at local fit club." },
-            { date: "May 24, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "May 23, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "" },
-            { date: "May 23, 2026", title: "Pool Session", activity: "Pool Lab", version: "—", sets: [], notes: "Pool with Olga." },
-            { date: "May 22, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Bench squat." },
-            { date: "May 21, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 20, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "General strength work." },
-            { date: "May 20, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "BFR arm work." },
-            { date: "May 19, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "May 18, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "Time flies and my technique is changing slowly. I'm feeling more confident about it but ankles and hips are not in the mobility state I'd like them to be." },
-            { date: "May 18, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "" },
-            { date: "May 17, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 16, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 15, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 14, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "May 13, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Bench squat exercise." },
-            { date: "May 13, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "" },
-            { date: "May 11, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "May 10, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT"], notes: "" },
-            { date: "May 9, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 8, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "At Paweł's training. Skaters squat, some 1/1/4 bench presses." },
-            { date: "May 7, 2026", title: "Deepspot Assessment", activity: "Deepspot", version: "—", sets: [], notes: "Another session at Deepspot." },
-            { date: "May 6, 2026", title: "Deepspot Video Dives", activity: "Deepspot", version: "—", sets: [], notes: "Deepspot 20m dives video 15 cycles. Missing ankles, hips, inward sweep and splash. But progress is visible." },
-            { date: "May 5, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 5, 2026", title: "Wingate Test", activity: "Other", version: "—", sets: [], notes: "Wingate 80% 4x30s - easier than first one." },
-            { date: "May 4, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "" },
-            { date: "May 3, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "May 2, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "15km bike ride." },
-            { date: "May 1, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "15km bike ride." },
-            { date: "April 30, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "" },
-            { date: "April 30, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "April 29, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "April 28, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "BFR lab session with Marta. Whole April I used to ease off from training, but stretching is going well. Easier grabbing ankles when facing floor." },
-            { date: "April 28, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "April 27, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "April 23, 2026 → April 26, 2026", title: "Tatra Hiking", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "Hiking in Tatra mountains." },
-            { date: "April 21, 2026", title: "BFR Test", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "4x30s 640watt BFR test." },
-            { date: "April 15, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "15km bike ride." },
-            { date: "April 15, 2026", title: "Crossfit", activity: "Strength & Motoric", version: "—", sets: [], notes: "Crossfit 1h." },
-            { date: "April 14, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "25km bike ride." },
-            { date: "April 14, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY"], notes: "" },
-            { date: "April 13, 2026", title: "Wingate Test", activity: "Other", version: "—", sets: [], notes: "Wingate test 30s. Tired. Interesting feeling afterwards." },
-            { date: "April 13, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["RECOVERY"], notes: "" },
-            { date: "April 12, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["RECOVERY"], notes: "" },
-            { date: "April 11, 2026", title: "Daily Lab Review", activity: "Pool Lab", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "2x45’ in pool. Swimming around on my back and adding arm strokes plus vertical." },
-            { date: "April 10, 2026", title: "Daily Lab Review", activity: "Pool Lab", version: "v1.0 (Legs)", sets: ["PREP", "SET P 4 (pool fun)"], notes: "Swam on my back with a noodle under thighs. Felt progress in using hips to widen ankles and rotate them." },
-            { date: "April 10, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "" },
-            { date: "April 9, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "April 8, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "April 7, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "Recorded pool sessions, struggling to get nice glide without wetsuit." },
-            { date: "April 7, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "It's a tough one to put those puzzles together. Did 3 cycles without wetsuit." },
-            { date: "April 6, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "SET B 1 (bfr)"], notes: "" },
-            { date: "April 5, 2026", title: "Hike / Run", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "Hike/run 10km." },
-            { date: "April 2, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "April 1, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "" },
-            { date: "March 31, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "72km bike ride." },
-            { date: "March 31, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["SET M 1 (mobility)", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "March 30, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP"], notes: "" },
-            { date: "March 30, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "65km bike ride." },
-            { date: "March 29, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["RECOVERY"], notes: "" },
-            { date: "March 29, 2026", title: "Cyprus Trekking", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "Trekking 10km in Cyprus." },
-            { date: "March 28, 2026 → April 6, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "Rest from freediving training. Bike, hike & recovered from illness." },
-            { date: "March 28, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["RECOVERY"], notes: "" },
-            { date: "March 26, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "15km bike ride." },
-            { date: "March 25, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "March 24, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Main exercise 5x back squat 60kg." },
-            { date: "March 24, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "March 23, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "" },
-            { date: "March 22, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["RECOVERY", "SET M 2 (fun stretching)"], notes: "" },
-            { date: "March 22, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "Progression visible when slowing down kick movement. 5 cycles without push-off wall. 16 kicks in Deepspot from 20m depth." },
-            { date: "March 22, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY"], notes: "Multiple stretching, always grabbing ankles and stretching shoulder blades." },
-            { date: "March 21, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2 (fun stretching)"], notes: "3h of stretching and rolling." },
-            { date: "March 20, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "2h fun stretching." },
-            { date: "March 19, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "First video analysis of DNF." },
-            { date: "March 19, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Elevated deadlift 80kg." },
-            { date: "March 19, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 1 (mobility)", "SET P 4 (pool fun)"], notes: "45 min pool, vertical clinic." },
-            { date: "March 18, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)"], notes: "Trying to balance tiredness with fun stretching." },
-            { date: "March 17, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Front squat 55kg 5x1 rep." },
-            { date: "March 17, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "45min pool & 2h mat." },
-            { date: "March 16, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "BFR session." },
-            { date: "March 16, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "A bit of ease this week. Keeping an eye on simple moves and stretching hips and ankles." },
-            { date: "March 16, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 1 (mobility)", "SET M 2 (fun stretching)", "SET P 4 (pool fun)"], notes: "60-70 mins pool with vertical in the end." },
-            { date: "March 15, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT"], notes: "Stretching and meditation around 2 hours on mat." },
-            { date: "March 15, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4 (pool fun)"], notes: "45 min pool session." },
-            { date: "March 14, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY"], notes: "" },
-            { date: "March 13, 2026", title: "Deepspot Assessment", activity: "Deepspot", version: "—", sets: [], notes: "Deepspot 20m assessment: 16 kicks recorded. Felt tired, technique broke down." },
-            { date: "March 12, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET P 3 (pool by Marek2)"], notes: "" },
-            { date: "March 12, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "Hard training with Marek! Progress when swimming on back is crazy." },
-            { date: "March 12, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Elevated front squat 60kg." },
-            { date: "March 11, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET M 1 (mobility)"], notes: "" },
-            { date: "March 11, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "After three meetings with Marek and adding multiple hip stretching exercises, isolation of simple movements gave visible change in my brain." },
-            { date: "March 10, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Front squat 50kg 4x2 reps." },
-            { date: "March 10, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET P 2 (pool by Marek)"], notes: "" },
-            { date: "March 9, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET P 1 (pool)"], notes: "Felt tired, slow pace vertical clinic." },
-            { date: "March 8, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET B 1 (bfr)", "SET M 1 (mobility)"], notes: "" },
-            { date: "March 7, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET A 1 (daily)"], notes: "" },
-            { date: "March 7, 2026", title: "Outdoor Bike", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "Bike 15km." },
-            { date: "March 6, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY"], notes: "" },
-            { date: "March 6, 2026", title: "Pool Lab with Marek", activity: "Pool Lab", version: "—", sets: ["SET P 2 (pool by Marek)"], notes: "Pool with Marek." },
-            { date: "March 5, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "General motoric session." },
-            { date: "March 5, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET P 1 (pool)"], notes: "" },
-            { date: "March 5, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["SET M 1 (mobility)"], notes: "" },
-            { date: "March 4, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET P 1 (pool)"], notes: "" },
-            { date: "March 3, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET A 1 (daily)"], notes: "" },
-            { date: "March 2, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET A 1 (daily)"], notes: "" },
-            { date: "March 1, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "SET A 1 (daily)"], notes: "" },
-            { date: "March 1, 2026", title: "Strength-Motoric", activity: "BFR Cossack Squats", version: "—", sets: [], notes: "BFR Cossack squats & BFR triceps." },
-            { date: "February 28, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "SET A 1 (daily)"], notes: "" },
-            { date: "February 27, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET A 1 (daily)", "SET P 1 (pool)"], notes: "" },
-            { date: "February 26, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET A 1 (daily)"], notes: "" },
-            { date: "February 25, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET P 1 (pool)"], notes: "" },
-            { date: "February 24, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "BFR isolation." },
-            { date: "February 24, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET B 1 (bfr)"], notes: "" },
-            { date: "February 23, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "" },
-            { date: "February 23, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET A 1 (daily)"], notes: "" },
-            { date: "February 22, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET A 1 (daily)"], notes: "" },
-            { date: "February 21, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET B 1 (bfr)"], notes: "" },
-            { date: "February 21, 2026", title: "Strength-Motoric", activity: "BFR Triceps", version: "—", sets: [], notes: "" },
-            { date: "February 20, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET A 1 (daily)", "SET P 1 (pool)"], notes: "" },
-            { date: "February 19, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "" },
-            { date: "February 19, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", version: "v1.0 (Legs)", sets: ["PREP", "RECOVERY", "SET P 1 (pool)"], notes: "" },
-            { date: "February 17, 2026", title: "Strength-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "" },
-            { date: "February 2, 2026 → February 19, 2026", title: "Pool & Strength Isolation", activity: "Mobility/Streching, Strength & Motoric", version: "—", sets: [], notes: "Isolation exercises before building Notion database." }
+            { date: "June 22, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 2"], notes: "Narrow knee tracking focus." },
+            { date: "June 22, 2026", title: "Bike & BFR", activity: "Outdoor / Bike / Running", version: "—", sets: ["SET B 1"], notes: "Bike 10km and BFR session." },
+            { date: "June 21, 2026", title: "Daily Lab Review", activity: "Mobility/Streching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
+            { date: "June 20, 2026", title: "Daily Lab Review", activity: "Mobility/Streching, Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 2"], notes: "" }
         ];
 
-        // OPEN MODAL FOR SPECIFIC SET DETAILS
         function openSetModal(setName) {
-            const setObj = drillsLibrary[setName];
+            let key = setName;
+            if (!drillsLibrary[key]) {
+                const keys = Object.keys(drillsLibrary);
+                key = keys.find(k => k.startsWith(setName) || setName.startsWith(k)) || "PREP SHORT";
+            }
+            const setObj = drillsLibrary[key];
             if (!setObj) return;
 
-            document.getElementById('modalSetTitle').innerText = setName;
+            document.getElementById('modalSetTitle').innerText = key;
             document.getElementById('modalSetCategory').innerText = setObj.category;
             
             const catBadge = document.getElementById('modalSetCategory');
@@ -672,6 +590,10 @@
                 catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-amber-950 border-amber-800 text-amber-400";
             } else if (setObj.color === 'purple') {
                 catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-purple-950 border-purple-800 text-purple-300";
+            } else if (setObj.color === 'cyan') {
+                catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-cyan-950 border-cyan-800 text-cyan-300";
+            } else if (setObj.color === 'rose') {
+                catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-rose-950 border-rose-800 text-rose-300";
             } else {
                 catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-emerald-950 border-emerald-800 text-emerald-300";
             }
@@ -705,7 +627,6 @@
             document.getElementById('setModal').classList.add('hidden');
         }
 
-        // RENDER LOGS TABLE WITH VERSION COLUMN CELL
         function renderLogs(filter = 'all') {
             const tbody = document.getElementById('logTableBody');
             tbody.innerHTML = '';
@@ -724,7 +645,6 @@
                     activityBadge = `<span class="bg-slate-800 text-slate-300 px-2 py-0.5 rounded-md text-[11px]">${log.activity}</span>`;
                 }
 
-                // Render Version Badge for ANY entry that specifies a version
                 let versionStr = log.version || '—';
                 let versionBadge = '';
                 if (versionStr !== '—') {
@@ -733,13 +653,15 @@
                     versionBadge = `<span class="text-slate-600 font-mono text-[11px]">—</span>`;
                 }
 
-                // Interactive Clickable Set Badges
                 const setsBadges = log.sets.length > 0 ? log.sets.map(s => {
                     if (s.includes('PREP')) {
                         return `<button onclick="openSetModal('${s}')" class="bg-amber-900/40 hover:bg-amber-800/60 text-amber-300 border border-amber-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${s} 🔍</button>`;
                     }
-                    if (s.includes('SET P')) {
+                    if (s.includes('SET P') || s.includes('P 1') || s.includes('P 2')) {
                         return `<button onclick="openSetModal('${s}')" class="bg-purple-900/40 hover:bg-purple-800/60 text-purple-300 border border-purple-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${s} 🔍</button>`;
+                    }
+                    if (s.includes('SET B') || s.includes('BFR')) {
+                        return `<button onclick="openSetModal('${s}')" class="bg-rose-900/40 hover:bg-rose-800/60 text-rose-300 border border-rose-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${s} 🔍</button>`;
                     }
                     if (s.includes('RECOVERY')) {
                         return `<button onclick="openSetModal('${s}')" class="bg-emerald-900/40 hover:bg-emerald-800/60 text-emerald-300 border border-emerald-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${s} 🔍</button>`;
@@ -767,7 +689,6 @@
             renderLogs(type);
         }
 
-        // TAB SWITCHING (TECHNIQUE VS DRILLS VS LOGS)
         function switchTab(tab) {
             const techTab = document.getElementById('tab-technique');
             const drillsTab = document.getElementById('tab-drills');
@@ -777,7 +698,6 @@
             const navDrills = document.getElementById('nav-drills');
             const navLogs = document.getElementById('nav-logs');
 
-            // Reset all tabs
             techTab.classList.add('hidden');
             drillsTab.classList.add('hidden');
             logsTab.classList.add('hidden');
@@ -798,7 +718,6 @@
             }
         }
 
-        // LIVE SEARCH FILTER
         function filterCards() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.querySelectorAll('.component-card');
