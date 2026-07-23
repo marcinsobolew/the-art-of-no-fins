@@ -37,6 +37,7 @@
                 <span class="font-montserrat font-bold text-base md:text-lg tracking-wider text-cyan-400">THE ART OF NO-FINS</span>
             </div>
             
+            <!-- TOP NOTION-STYLE NAVIGATION -->
             <nav class="flex items-center gap-3 text-xs text-slate-400 font-medium overflow-x-auto py-1">
                 <button onclick="switchTab('technique')" id="nav-technique" class="hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5">TECHNIQUE</button>
                 <span>|</span>
@@ -50,109 +51,158 @@
     <main class="max-w-6xl w-full mx-auto px-4 py-8 flex-grow">
         
         <div id="tab-technique">
-            <div class="text-center md:text-left mb-8">
-                <span class="text-xs font-bold text-cyan-400 bg-cyan-950/60 border border-cyan-800 px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-3">Freediving Mechanics & Training</span>
-                <h1 class="font-montserrat text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4">
-                    The Art of <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-purple-400">No-Fins</span>
-                </h1>
-                <p class="text-slate-400 text-base md:text-lg max-w-3xl">
-                    Mastering No-Fins swimming through biomechanics, streamlined drag reduction, and structured pool testing.
-                </p>
+            <!-- HERO & COMPACT SEARCH BAR ROW -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6">
+                <div>
+                    <span class="text-[10px] font-bold text-cyan-400 bg-cyan-950/60 border border-cyan-800 px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-2">Freediving Mechanics & Method</span>
+                    <h1 class="font-montserrat text-3xl md:text-4xl font-extrabold text-white leading-tight mb-2">
+                        The Art of <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-purple-400">No-Fins</span>
+                    </h1>
+                    <p class="text-slate-400 text-xs md:text-sm max-w-xl">
+                        Mastering No-Fins swimming through biomechanics, streamlined drag reduction, and structured pool testing.
+                    </p>
+                </div>
+
+                <!-- COMPACT SIDE SEARCH & TAGS -->
+                <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl w-full md:w-80 shadow-lg shrink-0">
+                    <div class="relative mb-2">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-xs"></i>
+                        <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="Search components..." class="w-full bg-slate-950 border border-slate-700/80 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors">
+                    </div>
+                    <div class="flex flex-wrap gap-1">
+                        <button onclick="setFilter('all')" class="tag-btn text-[10px] font-semibold bg-cyan-500 text-slate-950 px-2 py-0.5 rounded transition-colors active-tag" data-tag="all">#all</button>
+                        <button onclick="setFilter('legs')" class="tag-btn text-[10px] font-semibold bg-slate-800 hover:bg-slate-700 text-cyan-400 px-2 py-0.5 rounded transition-colors" data-tag="legs">🦵 #legs</button>
+                        <button onclick="setFilter('arms')" class="tag-btn text-[10px] font-semibold bg-slate-800 hover:bg-slate-700 text-amber-400 px-2 py-0.5 rounded transition-colors" data-tag="arms">💪 #arms</button>
+                        <button onclick="setFilter('glide')" class="tag-btn text-[10px] font-semibold bg-slate-800 hover:bg-slate-700 text-emerald-400 px-2 py-0.5 rounded transition-colors" data-tag="glide">🧘 #glide</button>
+                        <button onclick="setFilter('timing')" class="tag-btn text-[10px] font-semibold bg-slate-800 hover:bg-slate-700 text-purple-400 px-2 py-0.5 rounded transition-colors" data-tag="timing">⏱️ #timing</button>
+                    </div>
+                </div>
             </div>
 
-            <section class="bg-slate-900 border border-cyan-500/30 rounded-2xl p-6 mb-10 shadow-xl shadow-cyan-950/20">
-                <div class="mb-4">
-                    <label for="searchInput" class="block text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">🔍 Instant Search in Knowledge Base</label>
-                    <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="Search 'legs', 'arms', 'glide', 'timing', 'ankles', 'catch'..." class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors">
-                </div>
-
-                <div>
-                    <span class="text-xs text-slate-400 mr-2">Filter by Component:</span>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <button onclick="setFilter('all')" class="tag-btn text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1 rounded-full transition-colors active-tag" data-tag="all">#all</button>
-                        <button onclick="setFilter('legs')" class="tag-btn text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-cyan-400 px-3 py-1 rounded-full transition-colors" data-tag="legs">🦵 #legs</button>
-                        <button onclick="setFilter('arms')" class="tag-btn text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-amber-400 px-3 py-1 rounded-full transition-colors" data-tag="arms">💪 #arms</button>
-                        <button onclick="setFilter('glide')" class="tag-btn text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-emerald-400 px-3 py-1 rounded-full transition-colors" data-tag="glide">🧘 #glide</button>
-                        <button onclick="setFilter('timing')" class="tag-btn text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-purple-400 px-3 py-1 rounded-full transition-colors" data-tag="timing">⏱️ #timing</button>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mb-12 bg-slate-900/80 border border-cyan-500/30 rounded-2xl p-6 shadow-xl">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-2">
+            <!-- SECTION: THE ADVANTAGE -->
+            <section class="mb-10 bg-slate-900/90 border border-cyan-500/40 rounded-2xl p-6 shadow-2xl shadow-cyan-950/20">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-2 border-b border-slate-800 pb-4">
                     <div>
-                        <span class="text-[10px] font-bold text-cyan-400 bg-cyan-950/80 border border-cyan-800 px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-1">
-                            🧪 Active Testing
+                        <span class="text-[10px] font-bold text-amber-400 bg-amber-950/80 border border-amber-800/80 px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block mb-1">
+                            ⚡ High-Performance Rules
                         </span>
-                        <h2 class="font-montserrat text-xl md:text-2xl font-bold text-white m-0 border-none p-0">
-                            Current Lab Focus
+                        <h2 class="font-montserrat text-xl md:text-2xl font-bold text-white m-0 border-none p-0 flex items-center gap-2">
+                            THE ADVANTAGE
                         </h2>
                     </div>
-                    <span class="text-xs font-mono text-slate-400 bg-slate-950 px-3 py-1 rounded-lg border border-slate-800">
-                        July 2026
-                    </span>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-                    <div class="bg-slate-950 border border-amber-900/40 p-4 rounded-xl flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-amber-950/80 border border-amber-800 text-amber-400 flex items-center justify-center shrink-0 font-bold">
-                            <i class="fa-solid fa-vial-circle-check"></i>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <h4 class="font-bold text-white text-sm">Sole Clapping Finish (v1.2)</h4>
-                                <span class="bg-amber-900/50 text-amber-300 border border-amber-800 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase">In Testing</span>
-                            </div>
-                            <p class="text-slate-400 mt-1 leading-relaxed">
-                                Testing kick finish with sole clapping in 25m pool sets and Deepspot. Focusing on foot feel without spreading knees.
-                            </p>
-                        </div>
-                    </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="bg-slate-950/80 text-slate-400 border-b border-slate-800 font-semibold uppercase tracking-wider text-[11px]">
+                                <th class="p-3 w-36"><i class="fa-solid fa-code-branch mr-1 text-cyan-400"></i> Version & Component</th>
+                                <th class="p-3"><i class="fa-solid fa-bullseye mr-1 text-amber-400"></i> Key Cue (What You Do)</th>
+                                <th class="p-3 w-64 md:w-80"><i class="fa-solid fa-bolt mr-1 text-emerald-400"></i> The Advantage (What You Gain)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/80 text-slate-200">
+                            <!-- Rule 1 -->
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="p-3 align-top">
+                                    <span class="bg-cyan-950 text-cyan-300 border border-cyan-800 px-2 py-0.5 rounded text-[10px] font-bold font-mono inline-block mb-1">v1.1 Core</span>
+                                    <div class="text-[10px] text-slate-400 font-semibold uppercase">Legs + Timing</div>
+                                </td>
+                                <td class="p-3 align-top">
+                                    <div class="font-bold text-white text-sm mb-1">Lock Arrow Before the Kick</div>
+                                    <p class="text-slate-300 text-xs leading-relaxed">
+                                        Never start the backward whip kick drive until your hands & arms are fully locked overhead in a tight arrow position.
+                                    </p>
+                                </td>
+                                <td class="p-3 align-top bg-emerald-950/20 rounded-r-lg">
+                                    <div class="font-bold text-emerald-400 text-xs mb-1"><i class="fa-solid fa-circle-check mr-1"></i> Max Glide / Zero Brake</div>
+                                    <p class="text-slate-400 text-[11px] leading-relaxed">
+                                        100% of leg power pushes you through a bulletproof streamline instead of slamming into water resistance.
+                                    </p>
+                                </td>
+                            </tr>
 
-                    <div class="bg-slate-950 border border-purple-900/40 p-4 rounded-xl flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-400 flex items-center justify-center shrink-0 font-bold">
-                            <i class="fa-solid fa-hand"></i>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <h4 class="font-bold text-white text-sm">Spread Fingers Catch (v1.1)</h4>
-                                <span class="bg-purple-900/50 text-purple-300 border border-purple-800 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase">In Testing</span>
-                            </div>
-                            <p class="text-slate-400 mt-1 leading-relaxed">
-                                Testing wide finger separation during catch & pull phase to increase effective water surface grip & propulsive area.
-                            </p>
-                        </div>
-                    </div>
+                            <!-- Rule 2 -->
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="p-3 align-top">
+                                    <span class="bg-cyan-950 text-cyan-300 border border-cyan-800 px-2 py-0.5 rounded text-[10px] font-bold font-mono inline-block mb-1">v1.1 Core</span>
+                                    <div class="text-[10px] text-slate-400 font-semibold uppercase">Arms + Legs</div>
+                                </td>
+                                <td class="p-3 align-top">
+                                    <div class="font-bold text-white text-sm mb-1">Delay Knee Bend in Arm Recovery</div>
+                                    <p class="text-slate-300 text-xs leading-relaxed">
+                                        Slide hands upward toward the Arrow position. Initiate knee bending only when arms reach roughly 2/3 of their recovery path overhead.
+                                    </p>
+                                </td>
+                                <td class="p-3 align-top bg-emerald-950/20 rounded-r-lg">
+                                    <div class="font-bold text-emerald-400 text-xs mb-1"><i class="fa-solid fa-circle-check mr-1"></i> Preserves Momentum</div>
+                                    <p class="text-slate-400 text-[11px] leading-relaxed">
+                                        Stops your thighs from acting like a wide sea-anchor while hands are sliding upward into the streamline.
+                                    </p>
+                                </td>
+                            </tr>
 
-                    <div class="bg-slate-950 border border-cyan-900/40 p-4 rounded-xl flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-400 flex items-center justify-center shrink-0 font-bold">
-                            <i class="fa-solid fa-arrows-left-right-to-line"></i>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <h4 class="font-bold text-white text-sm">Hip & Ankle Mobility</h4>
-                                <span class="bg-cyan-900/50 text-cyan-300 border border-cyan-800 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase">Daily Practice</span>
-                            </div>
-                            <p class="text-slate-400 mt-1 leading-relaxed">
-                                Floor 90/90 stretches and pool backstroke drills with a noodle under thighs to improve outward hip rotation.
-                            </p>
-                        </div>
-                    </div>
+                            <!-- Rule 3 -->
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="p-3 align-top">
+                                    <span class="bg-cyan-950 text-cyan-300 border border-cyan-800 px-2 py-0.5 rounded text-[10px] font-bold font-mono inline-block mb-1">v1.1 Core</span>
+                                    <div class="text-[10px] text-slate-400 font-semibold uppercase">Arms + Mobility</div>
+                                </td>
+                                <td class="p-3 align-top">
+                                    <div class="font-bold text-white text-sm mb-1">Backstroke Drills for Scapular Freedom & Flat Body Line</div>
+                                    <p class="text-slate-300 text-xs leading-relaxed">
+                                        Swim backstroke kicking sets regularly. Use water support to open scapular range of motion while practicing full kick extension into a perfectly straight, flat body line.
+                                    </p>
+                                </td>
+                                <td class="p-3 align-top bg-emerald-950/20 rounded-r-lg">
+                                    <div class="font-bold text-emerald-400 text-xs mb-1"><i class="fa-solid fa-circle-check mr-1"></i> Effortless Arrow & Flat Profile</div>
+                                    <p class="text-slate-400 text-[11px] leading-relaxed">
+                                        Unlocks thoracic mobility for a strain-free Arrow position while training full kick completion into a completely horizontal, straight side profile.
+                                    </p>
+                                </td>
+                            </tr>
 
-                    <div class="bg-slate-950 border border-emerald-900/40 p-4 rounded-xl flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-950/80 border border-emerald-800 text-emerald-400 flex items-center justify-center shrink-0 font-bold">
-                            <i class="fa-solid fa-heart-pulse"></i>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <h4 class="font-bold text-white text-sm">BFR Training Sets</h4>
-                                <span class="bg-emerald-900/50 text-emerald-300 border border-emerald-800 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase">Training Protocol</span>
-                            </div>
-                            <p class="text-slate-400 mt-1 leading-relaxed">
-                                Blood flow restriction occlusion sets for legs and triceps to build stamina without muscle tightness.
-                            </p>
-                        </div>
-                    </div>
+                            <!-- Rule 4 (Testing) -->
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="p-3 align-top">
+                                    <span class="bg-amber-950 text-amber-300 border border-amber-800 px-2 py-0.5 rounded text-[10px] font-bold font-mono inline-block mb-1">v1.2 Test</span>
+                                    <div class="text-[10px] text-slate-400 font-semibold uppercase">Legs + Feet</div>
+                                </td>
+                                <td class="p-3 align-top">
+                                    <div class="font-bold text-white text-sm mb-1">Sole Clap Whip Finish</div>
+                                    <p class="text-slate-300 text-xs leading-relaxed">
+                                        Maintain knees locked at strict shoulder width (v1.1 baseline). Conclude the kick by snapping foot soles together in a terminal whip finish.
+                                    </p>
+                                </td>
+                                <td class="p-3 align-top bg-amber-950/20 rounded-r-lg">
+                                    <div class="font-bold text-amber-400 text-xs mb-1"><i class="fa-solid fa-vial mr-1"></i> Direct Thrust Vector</div>
+                                    <p class="text-slate-400 text-[11px] leading-relaxed">
+                                        Shoots water straight backward instead of spilling power sideways into wide drag splashes.
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <!-- Rule 5: Daily Mobility Creed -->
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="p-3 align-top">
+                                    <span class="bg-purple-950 text-purple-300 border border-purple-800 px-2 py-0.5 rounded text-[10px] font-bold font-mono inline-block mb-1">Daily Mobility</span>
+                                    <div class="text-[10px] text-slate-400 font-semibold uppercase">Hips + Ankles</div>
+                                </td>
+                                <td class="p-3 align-top">
+                                    <div class="font-bold text-amber-300 text-sm mb-1">"Better less, but daily"</div>
+                                    <p class="text-slate-300 text-xs leading-relaxed">
+                                        10–15 min micro-dosing of 90/90 rear ankle lifts, W-sits, prone ankle grabs (reverse hollow body), scapular stretches & foam rolling instead of chaotic weekly mega-stretching.
+                                    </p>
+                                </td>
+                                <td class="p-3 align-top bg-purple-950/20 rounded-r-lg">
+                                    <div class="font-bold text-purple-300 text-xs mb-1"><i class="fa-solid fa-brain mr-1"></i> Permanent Neural & Joint Adaptations</div>
+                                    <p class="text-slate-400 text-[11px] leading-relaxed">
+                                        Rewires internal hip rotation, ankle eversion, and scapular mobility without overloading tendons or causing pre-session muscle fatigue.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
@@ -160,24 +210,32 @@
                 <h2 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-6">🎯 The 4 Core Biomechanical Pillars</h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="cardGrid">
+                    
+                    <!-- COMPONENT 1: LEGS -->
                     <div id="card-legs" class="component-card bg-slate-900 border border-slate-800 hover:border-cyan-500/50 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between" data-tags="legs ankles hips eversion whip-kick mistakes v1.1 v1.2">
                         <div>
-                            <div class="flex justify-between items-start mb-4">
+                            <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
                                 <span class="text-xs font-bold text-cyan-400 bg-cyan-950/50 border border-cyan-800 px-3 py-1 rounded-full uppercase tracking-wider">Component 1 • Legs</span>
-                                <span class="text-xs text-slate-400 font-mono">v1.1 Active (v1.2 In Testing)</span>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">🟢 Active: v1.1</span>
+                                    <span class="bg-amber-950 text-amber-300 border border-amber-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">🧪 Testing: v1.2</span>
+                                </div>
                             </div>
+                            
                             <div>
                                 <h3 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-2">1. Legs, Ankles & Hip Rotation</h3>
                                 <p class="text-slate-400 text-sm leading-relaxed mb-4">
                                     Deep dive into ankle eversion, internal hip rotation, eliminating wide knee drag, and testing sole-clapping mechanics for future integration.
                                 </p>
                             </div>
+
                             <div class="flex flex-wrap gap-1.5 mb-6">
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-cyan-400 px-2 py-0.5 rounded">#ankles</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-emerald-400 px-2 py-0.5 rounded">#hips</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-amber-400 px-2 py-0.5 rounded">#whip-kick</span>
                             </div>
                         </div>
+
                         <div class="flex flex-col gap-2">
                             <a href="./1_legs/presentation_legs_v1_1.html" class="flex-grow text-center bg-cyan-500/20 border border-cyan-500/50 hover:bg-cyan-500/30 text-cyan-300 font-bold py-3 px-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
                                 <span>Presentation v1.1</span>
@@ -186,24 +244,31 @@
                         </div>
                     </div>
 
+                    <!-- COMPONENT 2: ARMS -->
                     <div id="card-arms" class="component-card bg-slate-900 border border-amber-500/30 hover:border-amber-400 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between" data-tags="arms catch pull high-elbow recovery spread-fingers v1.0 v1.1">
                         <div>
-                            <div class="flex justify-between items-start mb-4">
+                            <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
                                 <span class="text-xs font-bold text-amber-400 bg-amber-950/50 border border-amber-800 px-3 py-1 rounded-full uppercase tracking-wider">Component 2 • Arms</span>
-                                <span class="text-xs text-slate-400 font-mono">v1.0 Core (v1.1 In Testing)</span>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">🟢 Active: v1.0</span>
+                                    <span class="bg-purple-950 text-purple-300 border border-purple-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">🧪 Testing: v1.1</span>
+                                </div>
                             </div>
+                            
                             <div>
                                 <h3 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-2">2. Arms Pull & High Elbow Catch</h3>
                                 <p class="text-slate-400 text-sm leading-relaxed mb-4">
                                     Hydrodynamic analysis of forearm lift force, high elbow catch position, propulsion stroke under chest, and testing spread fingers surface area (v1.1).
                                 </p>
                             </div>
+
                             <div class="flex flex-wrap gap-1.5 mb-6">
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-amber-400 px-2 py-0.5 rounded">#arms</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-amber-400 px-2 py-0.5 rounded">#high-elbow</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-purple-400 px-2 py-0.5 rounded">#spread-fingers-v1.1</span>
                             </div>
                         </div>
+
                         <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
                             <div class="font-bold text-amber-400 mb-1">Key Arm Mechanics:</div>
                             <ul class="list-disc list-inside space-y-1 text-slate-400">
@@ -214,24 +279,28 @@
                         </div>
                     </div>
 
+                    <!-- COMPONENT 3: GLIDE & AXIS ALIGNMENT -->
                     <div id="card-glide" class="component-card bg-slate-900 border border-emerald-500/30 hover:border-emerald-400 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between" data-tags="glide axis streamline posture head-position v1.0">
                         <div>
-                            <div class="flex justify-between items-start mb-4">
+                            <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
                                 <span class="text-xs font-bold text-emerald-400 bg-emerald-950/50 border border-emerald-800 px-3 py-1 rounded-full uppercase tracking-wider">Component 3 • Glide</span>
-                                <span class="text-xs text-slate-400 font-mono">v1.0 Core</span>
+                                <span class="bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">🟢 Active: v1.0</span>
                             </div>
+                            
                             <div>
                                 <h3 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-2">3. Axial Alignment & Glide Phase</h3>
                                 <p class="text-slate-400 text-sm leading-relaxed mb-4">
                                     Every stroke cycle must start and finish locked strictly along a single central trajectory axis, eliminating lumbar arch drag and keeping the head stowed between shoulders.
                                 </p>
                             </div>
+
                             <div class="flex flex-wrap gap-1.5 mb-6">
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-emerald-400 px-2 py-0.5 rounded">#glide</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-cyan-400 px-2 py-0.5 rounded">#axis-lock</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-purple-400 px-2 py-0.5 rounded">#start-finish-line</span>
                             </div>
                         </div>
+
                         <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
                             <div class="font-bold text-emerald-400 mb-1">Axis & Stroke Line Checkpoints:</div>
                             <ul class="list-disc list-inside space-y-1 text-slate-400">
@@ -242,24 +311,28 @@
                         </div>
                     </div>
 
+                    <!-- COMPONENT 4: TIMING & CADENCE -->
                     <div id="card-timing" class="component-card bg-slate-900 border border-purple-500/30 hover:border-purple-400 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between" data-tags="timing cadence transition velocity arrow propulsion v1.0">
                         <div>
-                            <div class="flex justify-between items-start mb-4">
+                            <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
                                 <span class="text-xs font-bold text-purple-400 bg-cyan-950/50 border border-cyan-800 px-3 py-1 rounded-full uppercase tracking-wider">Component 4 • Timing</span>
-                                <span class="text-xs text-slate-400 font-mono">v1.0 Core</span>
+                                <span class="bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">🟢 Active: v1.0</span>
                             </div>
+                            
                             <div>
                                 <h3 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-2">4. Timing & Hydrodynamic Cadence</h3>
                                 <p class="text-slate-400 text-sm leading-relaxed mb-4">
                                     Initiating the leg kick propulsion (downward drive) precisely when the hands and arms are locked into the streamline arrow position.
                                 </p>
                             </div>
+
                             <div class="flex flex-wrap gap-1.5 mb-6">
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-purple-400 px-2 py-0.5 rounded">#timing</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-cyan-400 px-2 py-0.5 rounded">#arrow-position</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-emerald-400 px-2 py-0.5 rounded">#kick-initiation</span>
                             </div>
                         </div>
+
                         <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
                             <div class="font-bold text-purple-400 mb-1">Key Timing Rule:</div>
                             <p class="text-slate-400 leading-relaxed">
@@ -267,6 +340,7 @@
                             </p>
                         </div>
                     </div>
+
                 </div>
             </section>
         </div>
@@ -283,6 +357,7 @@
                 </div>
             </div>
 
+            <!-- SAFETY NOTICE BANNER -->
             <div class="bg-amber-950/40 border border-amber-800/60 rounded-xl p-3.5 mb-6 text-xs text-amber-200/90 flex items-start gap-3">
                 <i class="fa-solid fa-triangle-exclamation text-amber-400 text-base shrink-0 mt-0.5"></i>
                 <div>
@@ -291,7 +366,10 @@
                 </div>
             </div>
 
+            <!-- DRILLS GRID WITH ALL 11 SETS IN ENGLISH -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" id="drillsGrid">
+                
+                <!-- Card 1: PREP -->
                 <div class="bg-slate-900 border border-amber-800/60 hover:border-amber-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('PREP')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -299,13 +377,14 @@
                             <span class="text-slate-500 text-xs font-mono">20 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">PREP</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Pre-Training Activation: aktywacja eweratorów kostki, wewnętrznej rotacji biodra i Hollow Body.</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Pre-Training Activation: ankle evertors, internal hip rotation, prone ankle grabs (reverse hollow body), and Hollow Body postural lock.</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-amber-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-list-ul"></i> View Exercises
                     </button>
                 </div>
 
+                <!-- Card 2: SET P 1 -->
                 <div class="bg-slate-900 border border-cyan-800/60 hover:border-cyan-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 1')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -313,13 +392,14 @@
                             <span class="text-slate-500 text-xs font-mono">45 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">SET P 1</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Pool Lab (45-Minute Express): Skupienie na wyproście nóg i zachowaniu cienia ramion na plecach.</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Pool Lab (45-Minute Express): Focus on leg extension drive and maintaining arm shadow behind back.</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-cyan-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-water"></i> View Pool Drills
                     </button>
                 </div>
 
+                <!-- Card 3: RECOVERY -->
                 <div class="bg-slate-900 border border-emerald-800/60 hover:border-emerald-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('RECOVERY')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -327,13 +407,14 @@
                             <span class="text-slate-500 text-xs font-mono">15 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">RECOVERY</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Evening Maintenance: Wieczorne rolowanie stóp, łydek i otwarcie taśmy przedniej (Couch Stretch).</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Evening Maintenance: Nightly rolling of plantar fascia, calves, and anterior chain opening (Couch Stretch).</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-emerald-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-heart-pulse"></i> View Recovery Set
                     </button>
                 </div>
 
+                <!-- Card 4: SET A 1 -->
                 <div class="bg-slate-900 border border-amber-700/60 hover:border-amber-400 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET A 1')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -341,13 +422,14 @@
                             <span class="text-slate-500 text-xs font-mono">20 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">SET A 1</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Dry Isolation: Izolowany trening ramion na sucho (High Elbow Catch & Scapular Pull).</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Dry Isolation: Isolated arm dry-land routine (High Elbow Catch & Scapular Pull).</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-amber-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-dumbbell"></i> View Exercises
                     </button>
                 </div>
 
+                <!-- Card 5: SET B 1 -->
                 <div class="bg-slate-900 border border-rose-800/60 hover:border-rose-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET B 1')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -355,13 +437,14 @@
                             <span class="text-slate-500 text-xs font-mono">20 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">SET B 1</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">BFR Power & Endurance: Trening w okluzji dla zbudowania wytrzymałości bez spiny mięśniowej.</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">BFR Power & Endurance: Occlusion training for building stamina without muscle tightness.</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-rose-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-bolt"></i> View BFR Set
                     </button>
                 </div>
 
+                <!-- Card 6: SET D 1 -->
                 <div class="bg-slate-900 border border-blue-800/60 hover:border-blue-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET D 1')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -369,13 +452,14 @@
                             <span class="text-slate-500 text-xs font-mono">15 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">SET D 1</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Dry Simulation (short): Krótka symulacja sekwencji cyklu CNF w leżeniu na macie.</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Dry Simulation (short): Brief CNF cycle sequence simulation lying supine on mat.</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-blue-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-person-swimming"></i> View Exercises
                     </button>
                 </div>
 
+                <!-- Card 7: SET M 1 -->
                 <div class="bg-slate-900 border border-emerald-800/60 hover:border-emerald-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET M 1')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -383,13 +467,14 @@
                             <span class="text-slate-500 text-xs font-mono">20 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">SET M 1</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Ankle & Hip Mobility: Celowany zestaw na ewersję kostek i wewnętrzną rotację bioder.</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Ankle & Hip Mobility: Targeted session for ankle eversion and internal hip rotation.</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-emerald-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-arrows-spin"></i> View Mobility Set
                     </button>
                 </div>
 
+                <!-- Card 8: SET P 2 -->
                 <div class="bg-slate-900 border border-purple-800/60 hover:border-purple-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 2')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -397,13 +482,14 @@
                             <span class="text-slate-500 text-xs font-mono">45 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">SET P 2</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Pool By Marek: Zestaw basenowy ukierunkowany na wąskie kolana i czucie czystego toru.</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Pool By Marek: In-water drill set targeting narrow knee tracking and clean channel feel.</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-purple-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-water"></i> View Pool Drills
                     </button>
                 </div>
 
+                <!-- Card 9: SET P 3 -->
                 <div class="bg-slate-900 border border-purple-800/60 hover:border-purple-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 3')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -411,13 +497,14 @@
                             <span class="text-slate-500 text-xs font-mono">45 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">SET P 3</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Pool By Marek (Zaawansowany): Dłuższe serie szybowania z kontrolą pozycji Hollow Body.</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Pool By Marek (Advanced): Extended glide series with continuous Hollow Body posture control.</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-purple-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-water"></i> View Pool Drills
                     </button>
                 </div>
 
+                <!-- Card 10: SET M 2 -->
                 <div class="bg-slate-900 border border-emerald-800/60 hover:border-emerald-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET M 2')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -425,13 +512,14 @@
                             <span class="text-slate-500 text-xs font-mono">20 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">SET M 2</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Fun Stretching: Lekka, zabawowa sesja płynnego rozciągania i bezstresowej mobilności.</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Fun Stretching: Light, playful session of fluid stretching and stress-free mobility.</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-emerald-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-face-smile"></i> View Mobility Set
                     </button>
                 </div>
 
+                <!-- Card 11: SET P 4 -->
                 <div class="bg-slate-900 border border-cyan-800/60 hover:border-cyan-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 4')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -439,12 +527,13 @@
                             <span class="text-slate-500 text-xs font-mono">30 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">SET P 4</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Fun Pool: Swobodna zabawa w wodzie ze skupieniem na maksymalnym dystansie na 1 cyklu.</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Fun Pool: Playful water session focusing on maximum glide distance per single kick cycle.</p>
                     </div>
                     <button class="w-full bg-slate-800 hover:bg-slate-700 text-cyan-300 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-2 border border-slate-700">
                         <i class="fa-solid fa-water"></i> View Pool Drills
                     </button>
                 </div>
+
             </div>
         </div>
 
@@ -458,6 +547,7 @@
                         Daily laboratory & training journal tracking biomechanical changes & technique versions. Click any <span class="text-cyan-400 font-mono">Set Badge</span> to view details!
                     </p>
                 </div>
+                <!-- Filter by type -->
                 <div class="flex gap-2 flex-wrap">
                     <button onclick="filterLogs('all')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-cyan-500 text-slate-950 font-bold">All Logs</button>
                     <button onclick="filterLogs('Mobility')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-slate-800 text-emerald-400 font-semibold border border-slate-700">Mobility</button>
@@ -466,6 +556,7 @@
                 </div>
             </div>
 
+            <!-- NOTION-STYLE DATABASE TABLE WITH VERSION COLUMN -->
             <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left text-xs border-collapse">
@@ -480,6 +571,7 @@
                             </tr>
                         </thead>
                         <tbody id="logTableBody" class="divide-y divide-slate-800/60 text-slate-200">
+                            <!-- Rows rendered dynamically via JS -->
                         </tbody>
                     </table>
                 </div>
@@ -500,6 +592,7 @@
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-xs" id="modalSetBody">
+                <!-- Exercises injected dynamically -->
             </div>
             <div class="p-4 border-t border-slate-800 bg-slate-950 text-right">
                 <button onclick="closeSetModal()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-4 py-2 rounded-xl text-xs transition-colors">
@@ -518,23 +611,122 @@
 
     <script>
         const drillsLibrary = {
-            "PREP": { category: "Dry-Land Prep", color: "amber", duration: "20 mins", focus: "Aktywacja eweratorów kostki, wewnętrznej rotacji biodra i Hollow Body.", exercises: [{ name: "Ankle Eversion Band Resistance", reps: "3 x 12", desc: "Stopa odkręcona na zewnątrz." }, { name: "90/90 Hip Internal Rotations", reps: "2 x 10/stronę", desc: "Unoszenie kostki przy dociśniętym kolanie." }, { name: "Hollow Body Axial Lock Hold", reps: "3 x 30s", desc: "Lędźwie płasko na macie." }] },
-            "PREP SHORT": { category: "Dry-Land Prep", color: "amber", duration: "15 mins", focus: "Szybka aktywacja bioder i kostek.", exercises: [{ name: "Ankle Band Eversion", reps: "3 x 12", desc: "Praca nad ewersją z gumą." }, { name: "90/90 Rotations", reps: "2 x 10", desc: "Rotacja wewnętrzna w biodrze." }] },
-            "SET P 1": { category: "Pool Lab", color: "cyan", duration: "45 mins", focus: "Pool Lab Express: Skupienie na wyproście nóg i cieniu ramion.", exercises: [{ name: "25m Backstroke Stop-Motion Kick", reps: "2 x 25m", desc: "Zatrzymaj ruch na 1s przy piętach." }] },
-            "RECOVERY": { category: "Post-Lab Recovery", color: "emerald", duration: "15 mins", focus: "Evening Maintenance: Rolowanie stóp, łydek i Couch Stretch.", exercises: [{ name: "Plantar Fascia Release", reps: "2 min/stopa", desc: "Rozmasowywanie kulką." }, { name: "Couch Stretch", reps: "2 min/strona", desc: "Otwarcie taśmy przedniej." }] },
-            "SET A 1": { category: "Dry Isolation", color: "amber", duration: "20 mins", focus: "Dry Isolation: Izolowany trening ramion (High Elbow Catch).", exercises: [{ name: "Prone High Elbow Simulation", reps: "3 x 12", desc: "Kąt 90 st w łokciu." }] },
-            "SET B 1": { category: "BFR Power", color: "rose", duration: "20 mins", focus: "BFR Power & Endurance: Trening w okluzji.", exercises: [{ name: "BFR Triceps Extensions", reps: "4 x 30/15/15/15", desc: "Ciśnienie 60%." }] },
-            "SET D 1": { category: "Dry Simulation", color: "blue", duration: "15 mins", focus: "Dry Simulation (short): Symulacja cyklu CNF na macie.", exercises: [{ name: "Supine CNF Cycle Flow", reps: "10 cykli", desc: "Przejście ze strzałki w kopnięcie." }] },
-            "SET M 1": { category: "Mobility", color: "emerald", duration: "20 mins", focus: "Ankle & Hip Mobility: Ewersja kostek i rotacja bioder.", exercises: [{ name: "Band Eversion Holds", reps: "3 x 45s", desc: "Utrzymanie ewersji." }] },
-            "SET P 2": { category: "Pool Drill", color: "purple", duration: "45 mins", focus: "Pool By Marek: Wąskie kolana i czysty tor.", exercises: [{ name: "25m DNF Legs Only", reps: "4 x 25m", desc: "Kolana w cieniu ramion." }] },
-            "SET P 3": { category: "Pool Drill", color: "purple", duration: "45 mins", focus: "Pool By Marek 2: Serie szybowania z kontrolą Hollow Body.", exercises: [{ name: "25m Max Glide Cycles", reps: "4 x 25m", desc: "Liczenie cykli." }] },
-            "SET M 2": { category: "Fun Mobility", color: "emerald", duration: "20 mins", focus: "Fun Stretching: Lekka, zabawowa mobilność.", exercises: [{ name: "Shin Box Flow", reps: "3 minuty", desc: "Płynne przejścia." }] },
-            "SET P 4": { category: "Fun Pool", color: "cyan", duration: "30 mins", focus: "Fun Pool: Zabawa w wodzie i testy szybowania.", exercises: [{ name: "Single Kick Distance Test", reps: "6 prób", desc: "Maksymalny dystans na 1 cyklu." }] }
+            "PREP": {
+                category: "Dry-Land Prep",
+                color: "amber",
+                duration: "20 mins (Land)",
+                focus: "Ankle evertor activation, internal hip rotation, prone ankle grabs (reverse hollow body), and Hollow Body posture.",
+                exercises: [
+                    { name: "Ankle Eversion Band Resistance", reps: "3 sets x 12 reps", desc: "Foot pulled up and everted outward against resistance band tension." },
+                    { name: "90/90 Hip Internal Rotations", reps: "2 sets x 10 reps/side", desc: "Lifting rear ankle while keeping knee pressed firmly into mat." },
+                    { name: "Prone Ankle Grabs (Reverse Hollow Body)", reps: "3 sets x 30 seconds", desc: "Lying face down on mat, grabbing ankles to open hip flexors & quads while engaging posterior chain." },
+                    { name: "Hollow Body Axial Lock Hold", reps: "3 sets x 30 seconds", desc: "Lower back pressed flat against floor, chin slightly tucked." }
+                ]
+            },
+            "SET P 1": {
+                category: "Pool Lab",
+                color: "cyan",
+                duration: "45 mins (Pool)",
+                focus: "Pool Lab Express: Focus on full leg extension drive and maintaining arm shadow behind back.",
+                exercises: [
+                    { name: "25m Backstroke Stop-Motion Kick", reps: "2 x 25m", desc: "Pause movement for 1 second the instant heels touch glutes." },
+                    { name: "25m Streamline Glide Focus", reps: "2 x 25m", desc: "Maintain arms locked overhead in arrow; head stowed strictly between shoulders." }
+                ]
+            },
+            "RECOVERY": {
+                category: "Post-Lab Recovery",
+                color: "emerald",
+                duration: "15 mins (Land)",
+                focus: "Evening Maintenance: Nightly rolling of feet, calves, and anterior chain opening (Couch Stretch).",
+                exercises: [
+                    { name: "Plantar Fascia Lacrosse Ball Release", reps: "2 mins / foot", desc: "Slow myofascial massage over the foot arch with a ball." },
+                    { name: "Calf & Soleus Myofascial Rolling", reps: "3 mins / leg", desc: "Deep calf rolling with active flexing and extending of toes." },
+                    { name: "Couch Stretch (Hip Flexor Release)", reps: "2 mins / side", desc: "Knee against wall, pelvis tucked in neutral alignment." }
+                ]
+            },
+            "SET A 1": {
+                category: "Dry Isolation",
+                color: "amber",
+                duration: "20 mins (Land)",
+                focus: "Dry Isolation: Isolated arm dry-land routine (High Elbow Catch & Scapular Pull).",
+                exercises: [
+                    { name: "Prone High Elbow Catch Simulation", reps: "3 sets x 12 reps", desc: "Simulating 90° elbow flexion while lying prone on stomach." },
+                    { name: "Scapular Arrow Pull-Downs", reps: "3 sets x 10 reps", desc: "Depressing scapulae downward with lower back flat against mat." }
+                ]
+            },
+            "SET B 1": {
+                category: "BFR Power",
+                color: "rose",
+                duration: "20 mins (Gym)",
+                focus: "BFR Power: Occlusion training for building stamina without muscle tightness.",
+                exercises: [
+                    { name: "BFR Triceps Overhead Extensions", reps: "4 sets x 30/15/15/15 (60% pressure)", desc: "Slow eccentric phase, high elbow position." },
+                    { name: "BFR Cossack Squats / Lunges", reps: "4 sets x 15 reps/leg", desc: "Lateral chain stretch while maintaining perpendicular body axis." }
+                ]
+            },
+            "SET D 1": {
+                category: "Dry Simulation",
+                color: "blue",
+                duration: "15 mins (Land)",
+                focus: "Dry Simulation (short): Brief CNF cycle sequence simulation lying supine on mat.",
+                exercises: [
+                    { name: "Supine Full CNF Cycle Flow", reps: "10 full slow cycles", desc: "Combining arm extension, knee draw, and sole clapping finish." }
+                ]
+            },
+            "SET M 1": {
+                category: "Mobility",
+                color: "emerald",
+                duration: "20 mins (Land)",
+                focus: "Ankle & Hip Mobility: Targeted session for ankle eversion and internal hip rotation.",
+                exercises: [
+                    { name: "Band Eversion Holds", reps: "3 x 45 seconds", desc: "Sustained full outward foot eversion under band tension." },
+                    { name: "Shin Box Transitions", reps: "3 x 10 reps", desc: "Smooth pelvic transitions without lifting feet off mat." }
+                ]
+            },
+            "SET P 2": {
+                category: "Pool Drill",
+                color: "purple",
+                duration: "45 mins (Pool)",
+                focus: "Pool By Marek: In-water drill set targeting narrow knees and clean channel feel.",
+                exercises: [
+                    { name: "25m DNF Legs Only (Narrow Knees)", reps: "4 x 25m", desc: "Track knees narrowly within shoulder shadow, open feet wide from hips." },
+                    { name: "25m Whip Kick Sole Clapping Finish", reps: "4 x 25m", desc: "Finish kick cycle with gentle sole clap before transitioning into glide." }
+                ]
+            },
+            "SET P 3": {
+                category: "Pool Drill",
+                color: "purple",
+                duration: "45 mins (Pool)",
+                focus: "Pool By Marek (Advanced): Extended glide series with continuous Hollow Body posture control.",
+                exercises: [
+                    { name: "25m Max Glide Cycles", reps: "4 x 25m", desc: "Counting stroke cycles per 25m, aiming for minimum kick count." }
+                ]
+            },
+            "SET M 2": {
+                category: "Fun Mobility",
+                color: "emerald",
+                duration: "20 mins (Land)",
+                focus: "Fun Stretching: Light, playful session of fluid stretching and stress-free mobility.",
+                exercises: [
+                    { name: "Shin Box Flow & Reach", reps: "3 mins", desc: "Fluid seated transitions switching leg alignment dynamically." },
+                    { name: "Pancake Stretch Active Play", reps: "2 sets x 10 reps", desc: "Playful reaching to sides and forward in straddle." }
+                ]
+            },
+            "SET P 4": {
+                category: "Fun Pool",
+                color: "cyan",
+                duration: "30 mins (Pool)",
+                focus: "Fun Pool: Playful water session focusing on maximum glide distance per single kick cycle.",
+                exercises: [
+                    { name: "Single Kick Distance Test", reps: "6 trials", desc: "Relaxed deep breaths followed by 1 max power kick measuring glide distance." }
+                ]
+            },
+            /* Legacy Key Mappings */
+            "PREP SHORT": { category: "Dry-Land Prep", color: "amber", duration: "15 mins", focus: "Legacy Short Prep", exercises: [{ name: "See PREP Activation", reps: "Standard", desc: "Equivalent to PREP set." }] },
+            "PREP FULL": { category: "Dry-Land Prep", color: "amber", duration: "30 mins", focus: "Legacy Full Prep", exercises: [{ name: "See PREP Activation", reps: "Full", desc: "Extended PREP routine." }] }
         };
 
         const experimentalLogs = [
-            { date: "July 22, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "July 22, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "BFR Triceps" },
             { date: "July 21, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "lunges, knees to chest, hollow body one arm press, snatch and thrusters" },
             { date: "July 21, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
             { date: "July 20, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "15km bike" },
