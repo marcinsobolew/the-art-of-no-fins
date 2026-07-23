@@ -59,7 +59,7 @@
                         The Art of <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-purple-400">No-Fins</span>
                     </h1>
                     <p class="text-slate-400 text-xs md:text-sm max-w-xl">
-                        Mastering No-Fins swimming through biomechanics, streamlined drag reduction, and structured pool testing.
+                        Mastering No-Fins swimming through biomechanics, streamlined drag reduction, and structured depth and pool testing.
                     </p>
                 </div>
 
@@ -79,7 +79,24 @@
                 </div>
             </div>
 
-            <!-- SECTION: THE ADVANTAGE -->
+            <!-- LAB VERSIONING BANNER -->
+            <div class="mb-8 bg-slate-900/80 border border-slate-800 rounded-2xl p-4.5 flex items-start gap-3.5 shadow-xl">
+                <div class="w-9 h-9 rounded-xl bg-cyan-950/80 border border-cyan-800 flex items-center justify-center shrink-0 text-cyan-400 text-base mt-0.5">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <h3 class="font-bold text-white text-xs uppercase tracking-wider font-montserrat">
+                            A Living Biomechanical Lab
+                        </h3>
+                        <span class="text-[10px] font-bold font-mono text-cyan-300 bg-cyan-950 border border-cyan-800 px-2 py-0.5 rounded uppercase">v1.0 → v1.2 Evolution</span>
+                    </div>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Technique is not static—it evolves through continuous depth and pool testing. We use versioning (<code class="text-cyan-400 font-mono font-bold">v1.0</code>, <code class="text-emerald-400 font-mono font-bold">v1.1</code>, <code class="text-amber-400 font-mono font-bold">v1.2</code>) to transparently log every experiment, movement tweak, and trial. Explore baseline standards, see active habits, or inspect ongoing tests in the log.
+                    </p>
+                </div>
+            </div>
+
             <section class="mb-10 bg-slate-900/90 border border-cyan-500/40 rounded-2xl p-6 shadow-2xl shadow-cyan-950/20">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-2 border-b border-slate-800 pb-4">
                     <div>
@@ -388,7 +405,7 @@
                 <div class="bg-slate-900 border border-cyan-800/60 hover:border-cyan-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 1')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
-                            <span class="bg-cyan-950/80 text-cyan-400 border border-cyan-800 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Pool Drill</span>
+                            <span class="bg-cyan-950/80 text-cyan-400 border border-cyan-800 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Pool Lab</span>
                             <span class="text-slate-500 text-xs font-mono">45 mins</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">SET P 1</h3>
@@ -721,7 +738,6 @@
                     { name: "Single Kick Distance Test", reps: "6 trials", desc: "Relaxed deep breaths followed by 1 max power kick measuring glide distance." }
                 ]
             },
-            /* Legacy Key Mappings */
             "PREP SHORT": { category: "Dry-Land Prep", color: "amber", duration: "15 mins", focus: "Legacy Short Prep", exercises: [{ name: "See PREP Activation", reps: "Standard", desc: "Equivalent to PREP set." }] },
             "PREP FULL": { category: "Dry-Land Prep", color: "amber", duration: "30 mins", focus: "Legacy Full Prep", exercises: [{ name: "See PREP Activation", reps: "Full", desc: "Extended PREP routine." }] }
         };
@@ -918,57 +934,61 @@
         ];
 
         function openSetModal(setName) {
-            let cleanKey = setName.replace('[','').replace(']','').trim();
-            let key = cleanKey;
-            
-            if (!drillsLibrary[key]) {
-                const keys = Object.keys(drillsLibrary);
-                key = keys.find(k => k === cleanKey || k.replace(/\s+/g,'') === cleanKey.replace(/\s+/g,'') || cleanKey.startsWith(k)) || "PREP";
-            }
-            const setObj = drillsLibrary[key];
-            if (!setObj) return;
+            try {
+                let cleanKey = setName.replace('[','').replace(']','').trim();
+                let key = cleanKey;
+                
+                if (!drillsLibrary[key]) {
+                    const keys = Object.keys(drillsLibrary);
+                    key = keys.find(k => k === cleanKey || k.replace(/\s+/g,'') === cleanKey.replace(/\s+/g,'') || cleanKey.startsWith(k)) || "PREP";
+                }
+                const setObj = drillsLibrary[key];
+                if (!setObj) return;
 
-            document.getElementById('modalSetTitle').innerText = key;
-            document.getElementById('modalSetCategory').innerText = setObj.category;
-            
-            const catBadge = document.getElementById('modalSetCategory');
-            if (setObj.color === 'amber') {
-                catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-amber-950 border-amber-800 text-amber-400";
-            } else if (setObj.color === 'purple') {
-                catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-purple-950 border-purple-800 text-purple-300";
-            } else if (setObj.color === 'cyan') {
-                catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-cyan-950 border-cyan-800 text-cyan-300";
-            } else if (setObj.color === 'rose') {
-                catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-rose-950 border-rose-800 text-rose-300";
-            } else if (setObj.color === 'blue') {
-                catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-blue-950 border-blue-800 text-blue-300";
-            } else {
-                catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-emerald-950 border-emerald-800 text-emerald-300";
-            }
+                document.getElementById('modalSetTitle').innerText = key;
+                document.getElementById('modalSetCategory').innerText = setObj.category;
+                
+                const catBadge = document.getElementById('modalSetCategory');
+                if (setObj.color === 'amber') {
+                    catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-amber-950 border-amber-800 text-amber-400";
+                } else if (setObj.color === 'purple') {
+                    catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-purple-950 border-purple-800 text-purple-300";
+                } else if (setObj.color === 'cyan') {
+                    catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-cyan-950 border-cyan-800 text-cyan-300";
+                } else if (setObj.color === 'rose') {
+                    catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-rose-950 border-rose-800 text-rose-300";
+                } else if (setObj.color === 'blue') {
+                    catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-blue-950 border-blue-800 text-blue-300";
+                } else {
+                    catBadge.className = "text-[10px] font-bold px-2 py-0.5 rounded uppercase bg-emerald-950 border-emerald-800 text-emerald-300";
+                }
 
-            let exercisesHTML = `<div class="bg-slate-950 p-3 rounded-xl border border-slate-800 mb-4">
-                <span class="text-slate-400 font-bold">Duration:</span> <span class="text-white">${setObj.duration}</span><br>
-                <span class="text-slate-400 font-bold">Biomechanical Focus:</span> <span class="text-cyan-400">${setObj.focus}</span>
-            </div><h4 class="font-bold text-white text-sm mb-2">Exercise Sequence:</h4><div class="space-y-3">`;
+                let exercisesHTML = `<div class="bg-slate-950 p-3 rounded-xl border border-slate-800 mb-4">
+                    <span class="text-slate-400 font-bold">Duration:</span> <span class="text-white">${setObj.duration}</span><br>
+                    <span class="text-slate-400 font-bold">Biomechanical Focus:</span> <span class="text-cyan-400">${setObj.focus}</span>
+                </div><h4 class="font-bold text-white text-sm mb-2">Exercise Sequence:</h4><div class="space-y-3">`;
 
-            setObj.exercises.forEach((ex, idx) => {
-                exercisesHTML += `
-                    <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 flex items-start gap-3">
-                        <div class="w-6 h-6 rounded-full bg-slate-800 text-cyan-400 font-bold flex items-center justify-center shrink-0 text-xs">${idx + 1}</div>
-                        <div>
-                            <div class="flex justify-between items-center">
-                                <h5 class="text-white font-bold text-xs">${ex.name}</h5>
-                                <span class="text-cyan-400 font-mono text-[11px]">${ex.reps}</span>
+                setObj.exercises.forEach((ex, idx) => {
+                    exercisesHTML += `
+                        <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-slate-800 text-cyan-400 font-bold flex items-center justify-center shrink-0 text-xs">${idx + 1}</div>
+                            <div>
+                                <div class="flex justify-between items-center">
+                                    <h5 class="text-white font-bold text-xs">${ex.name}</h5>
+                                    <span class="text-cyan-400 font-mono text-[11px]">${ex.reps}</span>
+                                </div>
+                                <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">${ex.desc}</p>
                             </div>
-                            <p class="text-slate-400 text-[11px] mt-1 leading-relaxed">${ex.desc}</p>
                         </div>
-                    </div>
-                `;
-            });
+                    `;
+                });
 
-            exercisesHTML += `</div>`;
-            document.getElementById('modalSetBody').innerHTML = exercisesHTML;
-            document.getElementById('setModal').classList.remove('hidden');
+                exercisesHTML += `</div>`;
+                document.getElementById('modalSetBody').innerHTML = exercisesHTML;
+                document.getElementById('setModal').classList.remove('hidden');
+            } catch (err) {
+                console.error("Error opening set modal:", err);
+            }
         }
 
         function closeSetModal() {
@@ -976,62 +996,67 @@
         }
 
         function renderLogs(filter = 'all') {
-            const tbody = document.getElementById('logTableBody');
-            tbody.innerHTML = '';
+            try {
+                const tbody = document.getElementById('logTableBody');
+                if (!tbody) return;
+                tbody.innerHTML = '';
 
-            experimentalLogs.forEach(log => {
-                if (filter !== 'all' && !log.activity.includes(filter)) return;
+                experimentalLogs.forEach(log => {
+                    if (filter !== 'all' && !log.activity.includes(filter)) return;
 
-                let activityBadge = '';
-                if (log.activity.includes('Strength')) {
-                    activityBadge = '<span class="bg-amber-950/80 border border-amber-800 text-amber-400 px-2 py-0.5 rounded-md font-semibold text-[11px]">Strength & Motoric</span>';
-                } else if (log.activity.includes('Progress Note')) {
-                    activityBadge = '<span class="bg-purple-950/80 border border-purple-800 text-purple-300 px-2 py-0.5 rounded-md font-semibold text-[11px]">Progress Note</span>';
-                } else if (log.activity.includes('Mobility')) {
-                    activityBadge = '<span class="bg-emerald-950/80 border border-emerald-800 text-emerald-400 px-2 py-0.5 rounded-md font-semibold text-[11px]">Mobility/Stretching</span>';
-                } else {
-                    activityBadge = `<span class="bg-slate-800 text-slate-300 px-2 py-0.5 rounded-md text-[11px]">${log.activity}</span>`;
-                }
-
-                let versionStr = log.version || '—';
-                let versionBadge = '';
-                if (versionStr !== '—') {
-                    versionBadge = `<span class="bg-cyan-950/90 text-cyan-300 border border-cyan-700/80 px-2 py-0.5 rounded font-mono text-[10px] font-bold">${versionStr}</span>`;
-                } else {
-                    versionBadge = `<span class="text-slate-600 font-mono text-[11px]">—</span>`;
-                }
-
-                const setsBadges = log.sets.length > 0 ? log.sets.map(s => {
-                    const cleanS = s.replace('[','').replace(']','').trim();
-                    if (cleanS.includes('PREP')) {
-                        return `<button onclick="openSetModal('${cleanS}')" class="bg-amber-900/40 hover:bg-amber-800/60 text-amber-300 border border-amber-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${cleanS} 🔍</button>`;
+                    let activityBadge = '';
+                    if (log.activity.includes('Strength')) {
+                        activityBadge = '<span class="bg-amber-950/80 border border-amber-800 text-amber-400 px-2 py-0.5 rounded-md font-semibold text-[11px]">Strength & Motoric</span>';
+                    } else if (log.activity.includes('Progress Note')) {
+                        activityBadge = '<span class="bg-purple-950/80 border border-purple-800 text-purple-300 px-2 py-0.5 rounded-md font-semibold text-[11px]">Progress Note</span>';
+                    } else if (log.activity.includes('Mobility')) {
+                        activityBadge = '<span class="bg-emerald-950/80 border border-emerald-800 text-emerald-400 px-2 py-0.5 rounded-md font-semibold text-[11px]">Mobility/Stretching</span>';
+                    } else {
+                        activityBadge = `<span class="bg-slate-800 text-slate-300 px-2 py-0.5 rounded-md text-[11px]">${log.activity}</span>`;
                     }
-                    if (cleanS.includes('SET P') || cleanS.includes('P 1') || cleanS.includes('P 2') || cleanS.includes('P 3') || cleanS.includes('P 4')) {
-                        return `<button onclick="openSetModal('${cleanS}')" class="bg-purple-900/40 hover:bg-purple-800/60 text-purple-300 border border-purple-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${cleanS} 🔍</button>`;
-                    }
-                    if (cleanS.includes('SET B') || cleanS.includes('BFR')) {
-                        return `<button onclick="openSetModal('${cleanS}')" class="bg-rose-900/40 hover:bg-rose-800/60 text-rose-300 border border-rose-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${cleanS} 🔍</button>`;
-                    }
-                    if (cleanS.includes('RECOVERY') || cleanS.includes('SET M')) {
-                        return `<button onclick="openSetModal('${cleanS}')" class="bg-emerald-900/40 hover:bg-emerald-800/60 text-emerald-300 border border-emerald-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${cleanS} 🔍</button>`;
-                    }
-                    return `<button onclick="openSetModal('${cleanS}')" class="bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1">${cleanS}</button>`;
-                }).join('') : '<span class="text-slate-600 font-mono text-[11px]">—</span>';
 
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-800/40 transition-colors";
-                tr.innerHTML = `
-                    <td class="p-3 text-slate-400 font-mono text-[11px] whitespace-nowrap">${log.date}</td>
-                    <td class="p-3 font-semibold text-white flex items-center gap-1.5">
-                        <i class="fa-regular fa-file-lines text-slate-500"></i> ${log.title}
-                    </td>
-                    <td class="p-3">${activityBadge}</td>
-                    <td class="p-3">${versionBadge}</td>
-                    <td class="p-3">${setsBadges}</td>
-                    <td class="p-3 text-slate-300 leading-relaxed">${log.notes}</td>
-                `;
-                tbody.appendChild(tr);
-            });
+                    let versionStr = log.version || '—';
+                    let versionBadge = '';
+                    if (versionStr !== '—') {
+                        versionBadge = `<span class="bg-cyan-950/90 text-cyan-300 border border-cyan-700/80 px-2 py-0.5 rounded font-mono text-[10px] font-bold">${versionStr}</span>`;
+                    } else {
+                        versionBadge = `<span class="text-slate-600 font-mono text-[11px]">—</span>`;
+                    }
+
+                    const setsBadges = log.sets.length > 0 ? log.sets.map(s => {
+                        const cleanS = s.replace('[','').replace(']','').trim();
+                        if (cleanS.includes('PREP')) {
+                            return `<button onclick="openSetModal('${cleanS}')" class="bg-amber-900/40 hover:bg-amber-800/60 text-amber-300 border border-amber-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${cleanS} 🔍</button>`;
+                        }
+                        if (cleanS.includes('SET P') || cleanS.includes('P 1') || cleanS.includes('P 2') || cleanS.includes('P 3') || cleanS.includes('P 4')) {
+                            return `<button onclick="openSetModal('${cleanS}')" class="bg-purple-900/40 hover:bg-purple-800/60 text-purple-300 border border-purple-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${cleanS} 🔍</button>`;
+                        }
+                        if (cleanS.includes('SET B') || cleanS.includes('BFR')) {
+                            return `<button onclick="openSetModal('${cleanS}')" class="bg-rose-900/40 hover:bg-rose-800/60 text-rose-300 border border-rose-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${cleanS} 🔍</button>`;
+                        }
+                        if (cleanS.includes('RECOVERY') || cleanS.includes('SET M')) {
+                            return `<button onclick="openSetModal('${cleanS}')" class="bg-emerald-900/40 hover:bg-emerald-800/60 text-emerald-300 border border-emerald-800 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1 transition-all">${cleanS} 🔍</button>`;
+                        }
+                        return `<button onclick="openSetModal('${cleanS}')" class="bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded text-[10px] font-mono mr-1">${cleanS}</button>`;
+                    }).join('') : '<span class="text-slate-600 font-mono text-[11px]">—</span>';
+
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-slate-800/40 transition-colors";
+                    tr.innerHTML = `
+                        <td class="p-3 text-slate-400 font-mono text-[11px] whitespace-nowrap">${log.date}</td>
+                        <td class="p-3 font-semibold text-white flex items-center gap-1.5">
+                            <i class="fa-regular fa-file-lines text-slate-500"></i> ${log.title}
+                        </td>
+                        <td class="p-3">${activityBadge}</td>
+                        <td class="p-3">${versionBadge}</td>
+                        <td class="p-3">${setsBadges}</td>
+                        <td class="p-3 text-slate-300 leading-relaxed">${log.notes}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                console.error("Error rendering logs:", err);
+            }
         }
 
         function filterLogs(type) {
@@ -1039,83 +1064,105 @@
         }
 
         function switchTab(tab) {
-            const techTab = document.getElementById('tab-technique');
-            const drillsTab = document.getElementById('tab-drills');
-            const logsTab = document.getElementById('tab-logs');
-            
-            const navTech = document.getElementById('nav-technique');
-            const navDrills = document.getElementById('nav-drills');
-            const navLogs = document.getElementById('nav-logs');
+            try {
+                const techTab = document.getElementById('tab-technique');
+                const drillsTab = document.getElementById('tab-drills');
+                const logsTab = document.getElementById('tab-logs');
+                
+                const navTech = document.getElementById('nav-technique');
+                const navDrills = document.getElementById('nav-drills');
+                const navLogs = document.getElementById('nav-logs');
 
-            techTab.classList.add('hidden');
-            drillsTab.classList.add('hidden');
-            logsTab.classList.add('hidden');
+                techTab.classList.add('hidden');
+                drillsTab.classList.add('hidden');
+                logsTab.classList.add('hidden');
 
-            navTech.className = "hover:text-cyan-400 transition-colors text-slate-400";
-            navDrills.className = "hover:text-cyan-400 transition-colors text-slate-400";
-            navLogs.className = "hover:text-cyan-400 transition-colors text-slate-400";
+                navTech.className = "hover:text-cyan-400 transition-colors text-slate-400";
+                navDrills.className = "hover:text-cyan-400 transition-colors text-slate-400";
+                navLogs.className = "hover:text-cyan-400 transition-colors text-slate-400";
 
-            if (tab === 'logs') {
-                logsTab.classList.remove('hidden');
-                navLogs.className = "hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5";
-            } else if (tab === 'drills') {
-                drillsTab.classList.remove('hidden');
-                navDrills.className = "hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5";
-            } else {
-                techTab.classList.remove('hidden');
-                navTech.className = "hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5";
+                if (tab === 'logs') {
+                    logsTab.classList.remove('hidden');
+                    navLogs.className = "hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5";
+                } else if (tab === 'drills') {
+                    drillsTab.classList.remove('hidden');
+                    navDrills.className = "hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5";
+                } else {
+                    techTab.classList.remove('hidden');
+                    navTech.className = "hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5";
+                }
+            } catch (err) {
+                console.error("Error switching tab:", err);
             }
         }
 
         function filterCards() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.component-card');
+            try {
+                const searchEl = document.getElementById('searchInput');
+                if (!searchEl) return;
+                const input = searchEl.value.toLowerCase();
+                const cards = document.querySelectorAll('.component-card');
 
-            cards.forEach(card => {
-                const tags = card.getAttribute('data-tags').toLowerCase();
-                const textContent = card.innerText.toLowerCase();
+                cards.forEach(card => {
+                    const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+                    const textContent = card.innerText.toLowerCase();
 
-                if (tags.includes(input) || textContent.includes(input)) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-            });
+                    if (tags.includes(input) || textContent.includes(input)) {
+                        card.style.display = "flex";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            } catch (err) {
+                console.error("Error filtering cards:", err);
+            }
         }
 
         function setFilter(tag) {
-            const input = document.getElementById('searchInput');
-            if (tag === 'all') {
-                input.value = '';
-            } else {
-                input.value = tag;
-            }
-            filterCards();
-
-            document.querySelectorAll('.tag-btn').forEach(btn => {
-                if (btn.getAttribute('data-tag') === tag) {
-                    btn.classList.add('bg-cyan-500', 'text-slate-950');
-                    btn.classList.remove('bg-slate-800', 'text-slate-300');
-                } else {
-                    btn.classList.remove('bg-cyan-500', 'text-slate-950');
-                    btn.classList.add('bg-slate-800', 'text-slate-300');
+            try {
+                const input = document.getElementById('searchInput');
+                if (input) {
+                    if (tag === 'all') {
+                        input.value = '';
+                    } else {
+                        input.value = tag;
+                    }
                 }
-            });
+                filterCards();
+
+                document.querySelectorAll('.tag-btn').forEach(btn => {
+                    if (btn.getAttribute('data-tag') === tag) {
+                        btn.classList.add('bg-cyan-500', 'text-slate-950');
+                        btn.classList.remove('bg-slate-800', 'text-slate-300');
+                    } else {
+                        btn.classList.remove('bg-cyan-500', 'text-slate-950');
+                        btn.classList.add('bg-slate-800', 'text-slate-300');
+                    }
+                });
+            } catch (err) {
+                console.error("Error setting filter:", err);
+            }
         }
 
-        window.onload = function() {
-            // Reset search input and filter state on load to ensure all 4 cards show by default
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) {
-                searchInput.value = '';
-            }
-            setFilter('all');
+        // Safe Initialization on Window Load
+        window.addEventListener('DOMContentLoaded', function() {
+            try {
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    searchInput.value = '';
+                }
+                setFilter('all');
+                renderLogs();
 
-            renderLogs();
-            if (window.MathJax) {
-                MathJax.typesetPromise();
+                if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
+                    MathJax.typesetPromise().catch(function(err) {
+                        console.warn("MathJax typeset error:", err);
+                    });
+                }
+            } catch (err) {
+                console.error("Initialization error:", err);
             }
-        }
+        });
     </script>
 
 </body>
