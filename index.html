@@ -67,7 +67,7 @@
                 <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl w-full md:w-80 shadow-lg shrink-0">
                     <div class="relative mb-2">
                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-xs"></i>
-                        <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="Search components..." class="w-full bg-slate-950 border border-slate-700/80 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors">
+                        <input type="text" id="searchInput" onkeyup="filterCards()" autocomplete="off" placeholder="Search components..." class="w-full bg-slate-950 border border-slate-700/80 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors">
                     </div>
                     <div class="flex flex-wrap gap-1">
                         <button onclick="setFilter('all')" class="tag-btn text-[10px] font-semibold bg-cyan-500 text-slate-950 px-2 py-0.5 rounded transition-colors active-tag" data-tag="all">#all</button>
@@ -1104,6 +1104,13 @@
         }
 
         window.onload = function() {
+            // Reset search input and filter state on load to ensure all 4 cards show by default
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.value = '';
+            }
+            setFilter('all');
+
             renderLogs();
             if (window.MathJax) {
                 MathJax.typesetPromise();
