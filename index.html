@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- External experimental logs data -->
+    <script src="./logs/logs_data.js"></script>
+
     <script>
         window.MathJax = {
             tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
@@ -79,7 +82,7 @@
                 </div>
             </div>
 
-            <!-- LAB VERSIONING BANNER -->
+            <!-- LAB VERSIONING BANNER WITH PERSONAL MANIFESTO -->
             <div class="mb-8 bg-slate-900/80 border border-slate-800 rounded-2xl p-4.5 flex items-start gap-3.5 shadow-xl">
                 <div class="w-9 h-9 rounded-xl bg-cyan-950/80 border border-cyan-800 flex items-center justify-center shrink-0 text-cyan-400 text-base mt-0.5">
                     <i class="fa-solid fa-flask"></i>
@@ -87,12 +90,12 @@
                 <div>
                     <div class="flex items-center gap-2 mb-1">
                         <h3 class="font-bold text-white text-xs uppercase tracking-wider font-montserrat">
-                            A Living Biomechanical Lab
+                            A Living Biomechanical Lab — My Path, Your Framework
                         </h3>
                         <span class="text-[10px] font-bold font-mono text-cyan-300 bg-cyan-950 border border-cyan-800 px-2 py-0.5 rounded uppercase">v1.0 → v1.2 Evolution</span>
                     </div>
                     <p class="text-slate-300 text-xs leading-relaxed">
-                        Technique is not static—it evolves through continuous depth and pool testing. We use versioning (<code class="text-cyan-400 font-mono font-bold">v1.0</code>, <code class="text-emerald-400 font-mono font-bold">v1.1</code>, <code class="text-amber-400 font-mono font-bold">v1.2</code>) to transparently log every experiment, movement tweak, and trial. Explore baseline standards, see active habits, or inspect ongoing tests in the log.
+                        Technique is not static—it evolves through continuous depth and pool testing. We use versioning (<code class="text-cyan-400 font-mono font-bold">v1.0</code>, <code class="text-emerald-400 font-mono font-bold">v1.1</code>, <code class="text-amber-400 font-mono font-bold">v1.2</code>) to transparently log every experiment, movement tweak, and trial. This lab logs my personal journey. <strong>Take what resonates, adapt what fits your body, or discard the rest. You can do whatever you want with it—the only requirement is to swim with clear intention and know the direction you are heading.</strong>
                     </p>
                 </div>
             </div>
@@ -742,197 +745,6 @@
             "PREP FULL": { category: "Dry-Land Prep", color: "amber", duration: "30 mins", focus: "Legacy Full Prep", exercises: [{ name: "See PREP Activation", reps: "Full", desc: "Extended PREP routine." }] }
         };
 
-        const experimentalLogs = [
-            { date: "July 21, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "lunges, knees to chest, hollow body one arm press, snatch and thrusters" },
-            { date: "July 21, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-            { date: "July 20, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "15km bike" },
-            { date: "July 18, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-            { date: "July 16, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Squats 3s3s goblet 20 and 12 lunges (4 rounds)" },
-            { date: "July 15, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-            { date: "July 15, 2026", title: "Strenght-Motoric (1)", activity: "Strength & Motoric", version: "—", sets: [], notes: "KB alt snatch 17.5kg, overal upper body training session" },
-            { date: "July 13, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT"], notes: "Grabbing anklles still not possible" },
-            { date: "July 13, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-            { date: "July 9, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-            { date: "July 8, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Squats 3s3s goblet 12 2/2 and 20 lunges (4 rounds)" },
-            { date: "July 5, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-            { date: "July 4, 2026", title: "Progress information", activity: "Progress Note", version: "—", sets: [], notes: "Rodzinny wyjazd z dziećmi do Irlandii. Odpoczywam z wałkiem 😂" },
-            { date: "July 3, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "June 28, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching, Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET P 4"], notes: "" },
-            { date: "June 28, 2026", title: "Progress information", activity: "Progress Note", version: "v1.1 (Legs)", sets: [], notes: "Kopaniu z całej siły. Zatrzymanie przed finalym kopnięciem w dół. Plan awaryjny po the end." },
-            { date: "June 27, 2026", title: "Other", activity: "Outdoor / Bike / Running, Strength & Motoric", version: "—", sets: ["PREP SHORT", "RECOVERY"], notes: "Also bike 10km" },
-            { date: "June 26, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-            { date: "June 25, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-            { date: "June 24, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: [], notes: "Deepspot" },
-            { date: "June 22, 2026", title: "Strenght-Motoric", activity: "Outdoor / Bike / Running", version: "—", sets: ["SET B 1"], notes: "Bike 10km and Bfr" },
-            { date: "June 22, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching, Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-            { date: "June 21, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "June 20, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Gym" },
-            { date: "June 20, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching, Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2", "SET P 4"], notes: "" },
-            { date: "June 19, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "June 18, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "June 17, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching, Strength & Motoric", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2", "SET P 4"], notes: "" },
-            { date: "June 16, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "June 15, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "June 14, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2", "SET P 4"], notes: "" },
-            { date: "June 13, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET M 2"], notes: "" },
-            { date: "June 12, 2026", title: "Daily Lab Review", activity: "Pool Lab", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET P 2"], notes: "Shorter pool session. Felt tired and sicknes was coming" },
-            { date: "June 11, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET M 2"], notes: "" },
-            { date: "June 10, 2026", title: "Daily Lab Review", activity: "Pool Lab", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET P 2"], notes: "" },
-            { date: "June 10, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "June 9, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET M 2"], notes: "" },
-            { date: "June 8, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching, Pool Lab", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2", "SET P 4"], notes: "" },
-            { date: "June 7, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Gym chest and hanging" },
-            { date: "June 7, 2026", title: "Other", activity: "Mobility/Stretching", version: "—", sets: [], notes: "Stretching at fitness club" },
-            { date: "June 6, 2026", title: "Other", activity: "Mobility/Stretching", version: "—", sets: [], notes: "Stretching at fitness club" },
-            { date: "June 6, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "June 6, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "June 5, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "June 4, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2", "SET P 4"], notes: "" },
-            { date: "June 3, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2", "SET P 4"], notes: "" },
-            { date: "June 3, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "June 2, 2026", title: "Other", activity: "Strength & Motoric", version: "—", sets: [], notes: "Chest" },
-            { date: "June 2, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2", "SET P 4"], notes: "" },
-            { date: "June 1, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2", "SET P 4"], notes: "" },
-            { date: "May 29 → May 31, 2026", title: "Other", activity: "Mobility/Stretching", version: "—", sets: [], notes: "Joga retreat , animal flow. 3days of rest" },
-            { date: "May 28, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "May 27, 2026", title: "Other", activity: "Pool Lab", version: "v1.0 (Legacy)", sets: [], notes: "Deepspot. Good session. Two, one for me and one for Adam" },
-            { date: "May 27, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "May 26, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "May 26, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET M 2", "SET P 4"], notes: "" },
-            { date: "May 25, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-            { date: "May 24, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "May 24, 2026", title: "Other", activity: "Mobility/Stretching", version: "—", sets: [], notes: "Stretching session at local fit club" },
-            { date: "May 24, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "25km bike" },
-            { date: "May 23, 2026", title: "Other", activity: "Pool Lab", version: "v1.0 (Legacy)", sets: [], notes: "Pool with Olga" },
-            { date: "May 23, 2026", title: "Other", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "May 22, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Bench squat" },
-            { date: "May 22, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "" },
-            { date: "May 21, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "May 21, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "May 20, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: [], notes: "" },
-            { date: "May 20, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "May 20, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Don’t remember what" },
-            { date: "May 19, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-            { date: "May 18, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "May 18, 2026", title: "Progress information", activity: "Progress Note", version: "v1.0 (Legacy)", sets: [], notes: "Time flies and my technique is changing slowly. I’m feeling more confident about it but ankles and hips are not in the mobility state I’d like em to be 🤣 I have to describe the fun drills sets as I’m really prologing it 🤚" },
-            { date: "May 17, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["SET M 2"], notes: "" },
-            { date: "May 16, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "May 15, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "May 14, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "SET M 2", "SET P 4"], notes: "" },
-            { date: "May 13, 2026", title: "Other", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "May 13, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Bench squat exercise" },
-            { date: "May 11, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "May 10, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT"], notes: "" },
-            { date: "May 9, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "SET M 2"], notes: "" },
-            { date: "May 8, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "At Pawełs training. Skaters squat, some 1/1/4 bench presses." },
-            { date: "May 7, 2026", title: "Other", activity: "Pool Lab", version: "v1.0 (Legacy)", sets: [], notes: "Another session at Deepspot" },
-            { date: "May 6, 2026", title: "Other", activity: "Pool Lab", version: "v1.0 (Legacy)", sets: [], notes: "Deepspot 20m dives video 15 cycles. Missing ankles,hips, inward sweep and splash. But progress is visible" },
-            { date: "May 5, 2026", title: "Other", activity: "Strength & Motoric", version: "—", sets: [], notes: "Wingate 80%4x30 s easier then first one" },
-            { date: "May 5, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["RECOVERY", "SET M 2"], notes: "" },
-            { date: "May 4, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-            { date: "May 3, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "SET M 2"], notes: "" },
-            { date: "May 2, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "15km bike" },
-            { date: "May 1, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "15km" },
-            { date: "April 30, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "SET M 2"], notes: "" },
-            { date: "April 30, 2026", title: "Other", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "April 29, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "SET M 2"], notes: "" },
-            { date: "April 28, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "SET M 2"], notes: "" },
-            { date: "April 28, 2026", title: "Progress information", activity: "Progress Note", version: "v1.0 (Legacy)", sets: [], notes: "Today’s another session with Bfr lab with Marta. Cycling. Whole April I did use it for ease off from trainings but still there was only one day without single stretch. Stretching is going well, i see small things changes like easier grabbing my ankles when laying facing down the floor, easier to sit in w position. I do twist my hips and ankles wherever I can." },
-            { date: "April 27, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "SET M 2"], notes: "" },
-            { date: "April 27, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: [], notes: "" },
-            { date: "April 23 → April 26, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "Hiking in tatra mountains" },
-            { date: "April 21, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "4x30s 640watt Bfr test" },
-            { date: "April 15, 2026", title: "Other", activity: "Strength & Motoric", version: "—", sets: [], notes: "Crossfit 1h" },
-            { date: "April 15, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "15km bike" },
-            { date: "April 14, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY"], notes: "" },
-            { date: "April 14, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "25km bike" },
-            { date: "April 13, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["RECOVERY"], notes: "" },
-            { date: "April 13, 2026", title: "Other", activity: "Strength & Motoric", version: "—", sets: [], notes: "Wingate test 30s. Tired. Interesting feeling afterwards" },
-            { date: "April 12, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["RECOVERY"], notes: "" },
-            { date: "April 11, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching, Pool Lab", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET M 2", "SET P 4"], notes: "2x45’ in pool. Swimming around on my back and adding some arm strokes exercises plus vertical. Concentrated on pelvis tucked and ribs down." },
-            { date: "April 10, 2026", title: "Other", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "April 10, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching, Pool Lab", version: "v1.0 (Legacy)", sets: ["PREP", "SET P 4"], notes: "I swam on my back with a noodle under my thighs/butt. It's much more enjoyable to kick this way, but without the noodle, my body isn't as flexible. I feel progress in using my hips to widen my ankles and rotate them, but my ankle mobility still doesn't allow me to kick as I'd like—more from the heel. The more I swim, the greater my shortcomings become. I'm improving, but something indicates it won't be as easy." },
-            { date: "April 9, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "April 8, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY"], notes: "" },
-            { date: "April 7, 2026", title: "Progress information", activity: "Progress Note", version: "v1.0 (Legacy)", sets: [], notes: "It’s a tough one to put those puzzles all together to get nice technique. If it was easy everyone would do that 💪 did 3 cycles without wetsuit but I was slowing down. Bad buoyancy, body not leveled- these affect gliding. Have to create new pool only for gliding." },
-            { date: "April 7, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "SET M 2", "SET P 4"], notes: "Recorded pool sessions, struggling to get nice glide without wetsuit. Less knee spread but deeper knee raising (hip bending)" },
-            { date: "April 6, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "SET B 1"], notes: "" },
-            { date: "April 5, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "Hike/run 10km" },
-            { date: "April 2, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "SET M 2"], notes: "" },
-            { date: "April 1, 2026", title: "Other", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "March 31, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "72km bike" },
-            { date: "March 31, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["SET M 1", "SET M 2"], notes: "" },
-            { date: "March 30, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "65km" },
-            { date: "March 30, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP"], notes: "" },
-            { date: "March 29, 2026", title: "Other", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "Trekking 10km in Cyprus" },
-            { date: "March 29, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["RECOVERY"], notes: "" },
-            { date: "March 28 → April 6, 2026", title: "Progress information", activity: "Progress Note", version: "v1.0 (Legacy)", sets: [], notes: "A bit of rest from fd training. Did some stretching but mostly bike, hike and been sick for 4 days. Got some time to rethink ideas and rest. Met with sport psychologist and back on track !" },
-            { date: "March 28, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["RECOVERY"], notes: "" },
-            { date: "March 26, 2026", title: "Other", activity: "Pool Lab", version: "v1.0 (Legacy)", sets: [], notes: "Bike 15km" },
-            { date: "March 25, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "March 24, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-            { date: "March 24, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Main exercise 5x bs 60kg" },
-            { date: "March 23, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET M 2", "SET P 4"], notes: "" },
-            { date: "March 22, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY"], notes: "Multiple streching, always grabbing ankles And streching my shoulder blades" },
-            { date: "March 22, 2026", title: "Progress information", activity: "Progress Note", version: "v1.0 (Legacy)", sets: [], notes: "progression visible is only when slowing down kick movement, still the knees and hip are not in desired position when lifting heels. I sense how the ankles position should be but the hips are still blocking to do it. Have to unlearn lifting toes too early. 5 cycles without push-off the wall. 16 kicks in Deepspot from 20m depth" },
-            { date: "March 22, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["RECOVERY", "SET M 2"], notes: "" },
-            { date: "March 21, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "Did around 3h of streching and rolling. Missing this to feel the proper kick" },
-            { date: "March 20, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "SET M 2", "SET P 4"], notes: "When doing dynamic still I cannot unlearn the knees spreading and hips bending. A lot of mobility is missing so I’m pushing whenever I can. Spent around 2h for fun streching." },
-            { date: "March 19, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET M 1", "SET P 4"], notes: "45 min of fun pool, vertical." },
-            { date: "March 19, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Elevated dl 80kg" },
-            { date: "March 19, 2026", title: "Progress information", activity: "Progress Note", version: "v1.0 (Legacy)", sets: [], notes: "Did first video analysis of dnf. It was a way to develop myself again. It gives me wider view for what others might need with exercises. Today also weekly with Adam sports psychologist." },
-            { date: "March 18, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "SET M 2"], notes: "Trying to balance tiredness and multiple different exercises with fun stretching (repeating different exercises in chaotic manner). 2h while watching invincible" },
-            { date: "March 17, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "SET M 2", "SET P 4"], notes: "Playing daily with chaos exercises. 45min of pool and around 2h on mat" },
-            { date: "March 17, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "10 s 55kg FS , easy 5x1 rep" },
-            { date: "March 16, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET M 1", "SET M 2", "SET P 4"], notes: "Pool fun , 60-70 minutes with vertical in the end" },
-            { date: "March 16, 2026", title: "Progress information", activity: "Progress Note", version: "v1.0 (Legacy)", sets: [], notes: "A bit of ease this week. Added more fun sessions but also keeping an eye on simple moves and streching hips and ankles. Adding Mat fun sesions" },
-            { date: "March 16, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "March 15, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "45 min" },
-            { date: "March 15, 2026", title: "Daily Lab", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP SHORT"], notes: "Streching and meditation , a lot of these. Around 2hours on mat" },
-            { date: "March 14, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY"], notes: "" },
-            { date: "March 13, 2026", title: "Progress information", activity: "Progress Note", version: "v1.0 (Legacy)", sets: [], notes: "Today dad, felt tired, too much, lesson learned" },
-            { date: "March 12, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Main exercise, elevated fl only 60kg as I’m pretty exhausted after last week. Love it" },
-            { date: "March 12, 2026", title: "Progress information", activity: "Progress Note", version: "v1.0 (Legacy)", sets: [], notes: "Today was hard training with Marek, new, mixture of outside kicks , oh man! But the progress when swimming on my back is crazy! I feel relaxed when only on my back without anything (board, wetsuit). Later was the strenght training with athleticmovement,my legs kills me. And tomorrow ds" },
-            { date: "March 12, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET P 3"], notes: "" },
-            { date: "March 11, 2026", title: "Progress information", activity: "Progress Note", version: "v1.0 (Legacy)", sets: [], notes: "After three meetings with Marek and adding multiple hips streching exercises, isolation of simple movements gave visible change in my brain. I still have issues with catching shins and kick the water when floating on my back. Simple outcome as this point I simply should consider multiple hips streching outside (w letter) and arching back. Need to change vertical clinic to slow pace movement. Pojawiają się pomysły żeby robić też progres w ćwiczeniach, rozpisywać to na fazy progresu" },
-            { date: "March 11, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET M 1"], notes: "" },
-            { date: "March 10, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET P 2"], notes: "" },
-            { date: "March 10, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "Main exercises was 8s front squat . 50kg, 4 x 2reps" },
-            { date: "March 9, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET P 1"], notes: "I feel tired and have to change vertical clinic to something in slow pace" },
-            { date: "March 8, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET B 1", "SET M 1"], notes: "" },
-            { date: "March 7, 2026", title: "Strenght-Motoric", activity: "Outdoor / Bike / Running", version: "—", sets: [], notes: "Bike 15km" },
-            { date: "March 7, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET A 1"], notes: "" },
-            { date: "March 6, 2026", title: "Strenght-Motoric", activity: "Pool Lab", version: "v1.0 (Legacy)", sets: ["SET P 2"], notes: "Pool with Marek" },
-            { date: "March 6, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY"], notes: "" },
-            { date: "March 5, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["SET M 1"], notes: "" },
-            { date: "March 5, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET P 1"], notes: "" },
-            { date: "March 5, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "" },
-            { date: "March 4, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET P 1"], notes: "" },
-            { date: "March 3, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET A 1"], notes: "" },
-            { date: "March 2, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET A 1"], notes: "" },
-            { date: "March 1, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "BFR Cossack Squats, BFR Triceps" },
-            { date: "March 1, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "SET A 1"], notes: "" },
-            { date: "February 28, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "SET A 1"], notes: "" },
-            { date: "February 27, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET A 1", "SET P 1"], notes: "" },
-            { date: "February 26, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET A 1"], notes: "" },
-            { date: "February 25, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET P 1"], notes: "" },
-            { date: "February 24, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET B 1"], notes: "" },
-            { date: "February 24, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "February 23, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET A 1"], notes: "" },
-            { date: "February 23, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "" },
-            { date: "February 22, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET A 1"], notes: "" },
-            { date: "February 21, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: ["SET B 1"], notes: "" },
-            { date: "February 21, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET B 1"], notes: "" },
-            { date: "February 20, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching, Pool Lab", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET A 1", "SET P 1"], notes: "" },
-            { date: "February 19, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "" },
-            { date: "February 19, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching, Pool Lab", version: "v1.0 (Legacy)", sets: ["PREP", "RECOVERY", "SET P 1"], notes: "" },
-            { date: "February 17, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "" },
-            { date: "Feb 2 → Feb 19, 2026", title: "Pool, Strenght & Isolation", activity: "Mobility/Stretching, Strength & Motoric", version: "v1.0 (Legacy)", sets: [], notes: "Early baseline logs before building Notion tracker." },
-            { date: "February 10, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.0 (Legacy)", sets: [], notes: "Initial Ankle & Hip Evaluation." },
-            { date: "February 8, 2026", title: "Progress information", activity: "Progress Note", version: "v1.0 (Legacy)", sets: [], notes: "Ankle mobility needed. I see progress of hips. It’s visible by grabbing my ankles when facing floor or water. I see nice pattern in the pool that I can shoot out my legs after pressing water with my thighs. It’s like a trebuchet or similar feeling. Calves are shot out and internal sweep when soles are to meet gives nice sense of power." },
-            { date: "February 5, 2026", title: "Other Pool Session", activity: "Pool Lab", version: "v1.0 (Legacy)", sets: [], notes: "20 pools on back , relaxing session , just to repeat movement. Felt muscles anyway as forgot to roll legs before. Did stretching of back and hips" }
-        ];
-
         function openSetModal(setName) {
             try {
                 let cleanKey = setName.replace('[','').replace(']','').trim();
@@ -1001,7 +813,10 @@
                 if (!tbody) return;
                 tbody.innerHTML = '';
 
-                experimentalLogs.forEach(log => {
+                // Fallback if external data isn't loaded yet
+                const logsList = window.experimentalLogs || [];
+
+                logsList.forEach(log => {
                     if (filter !== 'all' && !log.activity.includes(filter)) return;
 
                     let activityBadge = '';
