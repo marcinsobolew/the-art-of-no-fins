@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- External experimental logs data -->
+    <!-- External experimental logs data script -->
     <script src="./logs/logs_data.js"></script>
 
     <script>
@@ -33,6 +33,7 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between">
 
+    <!-- NAVIGATION HEADER -->
     <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
             <div class="flex items-center gap-3">
@@ -40,7 +41,6 @@
                 <span class="font-montserrat font-bold text-base md:text-lg tracking-wider text-cyan-400">THE ART OF NO-FINS</span>
             </div>
             
-            <!-- TOP NOTION-STYLE NAVIGATION -->
             <nav class="flex items-center gap-3 text-xs text-slate-400 font-medium overflow-x-auto py-1">
                 <button onclick="switchTab('technique')" id="nav-technique" class="hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5">TECHNIQUE</button>
                 <span>|</span>
@@ -53,8 +53,8 @@
 
     <main class="max-w-6xl w-full mx-auto px-4 py-8 flex-grow">
         
+        <!-- TAB 1: TECHNIQUE -->
         <div id="tab-technique">
-            <!-- HERO & COMPACT SEARCH BAR ROW -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6">
                 <div>
                     <span class="text-[10px] font-bold text-cyan-400 bg-cyan-950/60 border border-cyan-800 px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-2">Freediving Mechanics & Method</span>
@@ -66,7 +66,6 @@
                     </p>
                 </div>
 
-                <!-- COMPACT SIDE SEARCH & TAGS -->
                 <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl w-full md:w-80 shadow-lg shrink-0">
                     <div class="relative mb-2">
                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-xs"></i>
@@ -82,7 +81,7 @@
                 </div>
             </div>
 
-            <!-- LAB VERSIONING BANNER WITH PERSONAL MANIFESTO -->
+            <!-- LAB MANIFESTO CALLOUT -->
             <div class="mb-8 bg-slate-900/80 border border-slate-800 rounded-2xl p-4.5 flex items-start gap-3.5 shadow-xl">
                 <div class="w-9 h-9 rounded-xl bg-cyan-950/80 border border-cyan-800 flex items-center justify-center shrink-0 text-cyan-400 text-base mt-0.5">
                     <i class="fa-solid fa-flask"></i>
@@ -100,6 +99,7 @@
                 </div>
             </div>
 
+            <!-- SECTION: THE ADVANTAGE -->
             <section class="mb-10 bg-slate-900/90 border border-cyan-500/40 rounded-2xl p-6 shadow-2xl shadow-cyan-950/20">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-2 border-b border-slate-800 pb-4">
                     <div>
@@ -122,7 +122,6 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-800/80 text-slate-200">
-                            <!-- Rule 1 -->
                             <tr class="hover:bg-slate-800/40 transition-colors">
                                 <td class="p-3 align-top">
                                     <span class="bg-cyan-950 text-cyan-300 border border-cyan-800 px-2 py-0.5 rounded text-[10px] font-bold font-mono inline-block mb-1">v1.1 Core</span>
@@ -130,19 +129,13 @@
                                 </td>
                                 <td class="p-3 align-top">
                                     <div class="font-bold text-white text-sm mb-1">Lock Arrow Before the Kick</div>
-                                    <p class="text-slate-300 text-xs leading-relaxed">
-                                        Never start the backward whip kick drive until your hands & arms are fully locked overhead in a tight arrow position.
-                                    </p>
+                                    <p class="text-slate-300 text-xs leading-relaxed">Never start the backward whip kick drive until your hands & arms are fully locked overhead in a tight arrow position.</p>
                                 </td>
                                 <td class="p-3 align-top bg-emerald-950/20 rounded-r-lg">
                                     <div class="font-bold text-emerald-400 text-xs mb-1"><i class="fa-solid fa-circle-check mr-1"></i> Max Glide / Zero Brake</div>
-                                    <p class="text-slate-400 text-[11px] leading-relaxed">
-                                        100% of leg power pushes you through a bulletproof streamline instead of slamming into water resistance.
-                                    </p>
+                                    <p class="text-slate-400 text-[11px] leading-relaxed">100% of leg power pushes you through a bulletproof streamline instead of slamming into water resistance.</p>
                                 </td>
                             </tr>
-
-                            <!-- Rule 2 -->
                             <tr class="hover:bg-slate-800/40 transition-colors">
                                 <td class="p-3 align-top">
                                     <span class="bg-cyan-950 text-cyan-300 border border-cyan-800 px-2 py-0.5 rounded text-[10px] font-bold font-mono inline-block mb-1">v1.1 Core</span>
@@ -150,19 +143,13 @@
                                 </td>
                                 <td class="p-3 align-top">
                                     <div class="font-bold text-white text-sm mb-1">Delay Knee Bend in Arm Recovery</div>
-                                    <p class="text-slate-300 text-xs leading-relaxed">
-                                        Slide hands upward toward the Arrow position. Initiate knee bending only when arms reach roughly 2/3 of their recovery path overhead.
-                                    </p>
+                                    <p class="text-slate-300 text-xs leading-relaxed">Slide hands upward toward the Arrow position. Initiate knee bending only when arms reach roughly 2/3 of their recovery path overhead.</p>
                                 </td>
                                 <td class="p-3 align-top bg-emerald-950/20 rounded-r-lg">
                                     <div class="font-bold text-emerald-400 text-xs mb-1"><i class="fa-solid fa-circle-check mr-1"></i> Preserves Momentum</div>
-                                    <p class="text-slate-400 text-[11px] leading-relaxed">
-                                        Stops your thighs from acting like a wide sea-anchor while hands are sliding upward into the streamline.
-                                    </p>
+                                    <p class="text-slate-400 text-[11px] leading-relaxed">Stops your thighs from acting like a wide sea-anchor while hands are sliding upward into the streamline.</p>
                                 </td>
                             </tr>
-
-                            <!-- Rule 3 -->
                             <tr class="hover:bg-slate-800/40 transition-colors">
                                 <td class="p-3 align-top">
                                     <span class="bg-cyan-950 text-cyan-300 border border-cyan-800 px-2 py-0.5 rounded text-[10px] font-bold font-mono inline-block mb-1">v1.1 Core</span>
@@ -170,19 +157,13 @@
                                 </td>
                                 <td class="p-3 align-top">
                                     <div class="font-bold text-white text-sm mb-1">Backstroke Drills for Scapular Freedom & Flat Body Line</div>
-                                    <p class="text-slate-300 text-xs leading-relaxed">
-                                        Swim backstroke kicking sets regularly. Use water support to open scapular range of motion while practicing full kick extension into a perfectly straight, flat body line.
-                                    </p>
+                                    <p class="text-slate-300 text-xs leading-relaxed">Swim backstroke kicking sets regularly. Use water support to open scapular range of motion while practicing full kick extension into a perfectly straight, flat body line.</p>
                                 </td>
                                 <td class="p-3 align-top bg-emerald-950/20 rounded-r-lg">
                                     <div class="font-bold text-emerald-400 text-xs mb-1"><i class="fa-solid fa-circle-check mr-1"></i> Effortless Arrow & Flat Profile</div>
-                                    <p class="text-slate-400 text-[11px] leading-relaxed">
-                                        Unlocks thoracic mobility for a strain-free Arrow position while training full kick completion into a completely horizontal, straight side profile.
-                                    </p>
+                                    <p class="text-slate-400 text-[11px] leading-relaxed">Unlocks thoracic mobility for a strain-free Arrow position while training full kick completion into a completely horizontal, straight side profile.</p>
                                 </td>
                             </tr>
-
-                            <!-- Rule 4 (Testing) -->
                             <tr class="hover:bg-slate-800/40 transition-colors">
                                 <td class="p-3 align-top">
                                     <span class="bg-amber-950 text-amber-300 border border-amber-800 px-2 py-0.5 rounded text-[10px] font-bold font-mono inline-block mb-1">v1.2 Test</span>
@@ -190,19 +171,13 @@
                                 </td>
                                 <td class="p-3 align-top">
                                     <div class="font-bold text-white text-sm mb-1">Sole Clap Whip Finish</div>
-                                    <p class="text-slate-300 text-xs leading-relaxed">
-                                        Maintain knees locked at strict shoulder width (v1.1 baseline). Conclude the kick by snapping foot soles together in a terminal whip finish.
-                                    </p>
+                                    <p class="text-slate-300 text-xs leading-relaxed">Maintain knees locked at strict shoulder width (v1.1 baseline). Conclude the kick by snapping foot soles together in a terminal whip finish.</p>
                                 </td>
                                 <td class="p-3 align-top bg-amber-950/20 rounded-r-lg">
                                     <div class="font-bold text-amber-400 text-xs mb-1"><i class="fa-solid fa-vial mr-1"></i> Direct Thrust Vector</div>
-                                    <p class="text-slate-400 text-[11px] leading-relaxed">
-                                        Shoots water straight backward instead of spilling power sideways into wide drag splashes.
-                                    </p>
+                                    <p class="text-slate-400 text-[11px] leading-relaxed">Shoots water straight backward instead of spilling power sideways into wide drag splashes.</p>
                                 </td>
                             </tr>
-
-                            <!-- Rule 5: Daily Mobility Creed -->
                             <tr class="hover:bg-slate-800/40 transition-colors">
                                 <td class="p-3 align-top">
                                     <span class="bg-purple-950 text-purple-300 border border-purple-800 px-2 py-0.5 rounded text-[10px] font-bold font-mono inline-block mb-1">Daily Mobility</span>
@@ -210,15 +185,11 @@
                                 </td>
                                 <td class="p-3 align-top">
                                     <div class="font-bold text-amber-300 text-sm mb-1">"Better less, but daily"</div>
-                                    <p class="text-slate-300 text-xs leading-relaxed">
-                                        10–15 min micro-dosing of 90/90 rear ankle lifts, W-sits, prone ankle grabs (reverse hollow body), scapular stretches & foam rolling instead of chaotic weekly mega-stretching.
-                                    </p>
+                                    <p class="text-slate-300 text-xs leading-relaxed">10–15 min micro-dosing of 90/90 rear ankle lifts, W-sits, prone ankle grabs (reverse hollow body), scapular stretches & foam rolling instead of chaotic weekly mega-stretching.</p>
                                 </td>
                                 <td class="p-3 align-top bg-purple-950/20 rounded-r-lg">
                                     <div class="font-bold text-purple-300 text-xs mb-1"><i class="fa-solid fa-brain mr-1"></i> Permanent Neural & Joint Adaptations</div>
-                                    <p class="text-slate-400 text-[11px] leading-relaxed">
-                                        Rewires internal hip rotation, ankle eversion, and scapular mobility without overloading tendons or causing pre-session muscle fatigue.
-                                    </p>
+                                    <p class="text-slate-400 text-[11px] leading-relaxed">Rewires internal hip rotation, ankle eversion, and scapular mobility without overloading tendons or causing pre-session muscle fatigue.</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -226,12 +197,12 @@
                 </div>
             </section>
 
+            <!-- SECTION: 4 PILLARS -->
             <section class="mb-12">
                 <h2 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-6">🎯 The 4 Core Biomechanical Pillars</h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="cardGrid">
-                    
-                    <!-- COMPONENT 1: LEGS -->
+                    <!-- LEGS CARD -->
                     <div id="card-legs" class="component-card bg-slate-900 border border-slate-800 hover:border-cyan-500/50 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between" data-tags="legs ankles hips eversion whip-kick mistakes v1.1 v1.2">
                         <div>
                             <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
@@ -241,21 +212,16 @@
                                     <span class="bg-amber-950 text-amber-300 border border-amber-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">🧪 Testing: v1.2</span>
                                 </div>
                             </div>
-                            
                             <div>
                                 <h3 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-2">1. Legs, Ankles & Hip Rotation</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                    Deep dive into ankle eversion, internal hip rotation, eliminating wide knee drag, and testing sole-clapping mechanics for future integration.
-                                </p>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">Deep dive into ankle eversion, internal hip rotation, eliminating wide knee drag, and testing sole-clapping mechanics for future integration.</p>
                             </div>
-
                             <div class="flex flex-wrap gap-1.5 mb-6">
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-cyan-400 px-2 py-0.5 rounded">#ankles</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-emerald-400 px-2 py-0.5 rounded">#hips</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-amber-400 px-2 py-0.5 rounded">#whip-kick</span>
                             </div>
                         </div>
-
                         <div class="flex flex-col gap-2">
                             <a href="./1_legs/presentation_legs_v1_1.html" class="flex-grow text-center bg-cyan-500/20 border border-cyan-500/50 hover:bg-cyan-500/30 text-cyan-300 font-bold py-3 px-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
                                 <span>Presentation v1.1</span>
@@ -264,7 +230,7 @@
                         </div>
                     </div>
 
-                    <!-- COMPONENT 2: ARMS -->
+                    <!-- ARMS CARD -->
                     <div id="card-arms" class="component-card bg-slate-900 border border-amber-500/30 hover:border-amber-400 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between" data-tags="arms catch pull high-elbow recovery spread-fingers v1.0 v1.1">
                         <div>
                             <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
@@ -274,21 +240,16 @@
                                     <span class="bg-purple-950 text-purple-300 border border-purple-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">🧪 Testing: v1.1</span>
                                 </div>
                             </div>
-                            
                             <div>
                                 <h3 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-2">2. Arms Pull & High Elbow Catch</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                    Hydrodynamic analysis of forearm lift force, high elbow catch position, propulsion stroke under chest, and testing spread fingers surface area (v1.1).
-                                </p>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">Hydrodynamic analysis of forearm lift force, high elbow catch position, propulsion stroke under chest, and testing spread fingers surface area (v1.1).</p>
                             </div>
-
                             <div class="flex flex-wrap gap-1.5 mb-6">
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-amber-400 px-2 py-0.5 rounded">#arms</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-amber-400 px-2 py-0.5 rounded">#high-elbow</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-purple-400 px-2 py-0.5 rounded">#spread-fingers-v1.1</span>
                             </div>
                         </div>
-
                         <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
                             <div class="font-bold text-amber-400 mb-1">Key Arm Mechanics:</div>
                             <ul class="list-disc list-inside space-y-1 text-slate-400">
@@ -299,28 +260,23 @@
                         </div>
                     </div>
 
-                    <!-- COMPONENT 3: GLIDE & AXIS ALIGNMENT -->
+                    <!-- GLIDE CARD -->
                     <div id="card-glide" class="component-card bg-slate-900 border border-emerald-500/30 hover:border-emerald-400 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between" data-tags="glide axis streamline posture head-position v1.0">
                         <div>
                             <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
                                 <span class="text-xs font-bold text-emerald-400 bg-emerald-950/50 border border-emerald-800 px-3 py-1 rounded-full uppercase tracking-wider">Component 3 • Glide</span>
                                 <span class="bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">🟢 Active: v1.0</span>
                             </div>
-                            
                             <div>
                                 <h3 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-2">3. Axial Alignment & Glide Phase</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                    Every stroke cycle must start and finish locked strictly along a single central trajectory axis, eliminating lumbar arch drag and keeping the head stowed between shoulders.
-                                </p>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">Every stroke cycle must start and finish locked strictly along a single central trajectory axis, eliminating lumbar arch drag and keeping the head stowed between shoulders.</p>
                             </div>
-
                             <div class="flex flex-wrap gap-1.5 mb-6">
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-emerald-400 px-2 py-0.5 rounded">#glide</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-cyan-400 px-2 py-0.5 rounded">#axis-lock</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-purple-400 px-2 py-0.5 rounded">#start-finish-line</span>
                             </div>
                         </div>
-
                         <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
                             <div class="font-bold text-emerald-400 mb-1">Axis & Stroke Line Checkpoints:</div>
                             <ul class="list-disc list-inside space-y-1 text-slate-400">
@@ -331,33 +287,26 @@
                         </div>
                     </div>
 
-                    <!-- COMPONENT 4: TIMING & CADENCE -->
+                    <!-- TIMING CARD -->
                     <div id="card-timing" class="component-card bg-slate-900 border border-purple-500/30 hover:border-purple-400 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between" data-tags="timing cadence transition velocity arrow propulsion v1.0">
                         <div>
                             <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
                                 <span class="text-xs font-bold text-purple-400 bg-cyan-950/50 border border-cyan-800 px-3 py-1 rounded-full uppercase tracking-wider">Component 4 • Timing</span>
                                 <span class="bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">🟢 Active: v1.0</span>
                             </div>
-                            
                             <div>
                                 <h3 class="font-montserrat text-xl md:text-2xl font-bold text-white mb-2">4. Timing & Hydrodynamic Cadence</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                    Initiating the leg kick propulsion (downward drive) precisely when the hands and arms are locked into the streamline arrow position.
-                                </p>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">Initiating the leg kick propulsion (downward drive) precisely when the hands and arms are locked into the streamline arrow position.</p>
                             </div>
-
                             <div class="flex flex-wrap gap-1.5 mb-6">
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-purple-400 px-2 py-0.5 rounded">#timing</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-cyan-400 px-2 py-0.5 rounded">#arrow-position</span>
                                 <span class="text-[10px] bg-slate-950 border border-slate-800 text-emerald-400 px-2 py-0.5 rounded">#kick-initiation</span>
                             </div>
                         </div>
-
                         <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
                             <div class="font-bold text-purple-400 mb-1">Key Timing Rule:</div>
-                            <p class="text-slate-400 leading-relaxed">
-                                The main downward leg kick drive begins only after the arms have reached the locked arrow position overhead, ensuring propulsive force is delivered through a fully streamlined body.
-                            </p>
+                            <p class="text-slate-400 leading-relaxed">The main downward leg kick drive begins only after the arms have reached the locked arrow position overhead, ensuring propulsive force is delivered through a fully streamlined body.</p>
                         </div>
                     </div>
 
@@ -365,6 +314,7 @@
             </section>
         </div>
 
+        <!-- TAB 2: DRILLS LIBRARY -->
         <div id="tab-drills" class="hidden">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                 <div>
@@ -377,7 +327,6 @@
                 </div>
             </div>
 
-            <!-- SAFETY NOTICE BANNER -->
             <div class="bg-amber-950/40 border border-amber-800/60 rounded-xl p-3.5 mb-6 text-xs text-amber-200/90 flex items-start gap-3">
                 <i class="fa-solid fa-triangle-exclamation text-amber-400 text-base shrink-0 mt-0.5"></i>
                 <div>
@@ -386,10 +335,7 @@
                 </div>
             </div>
 
-            <!-- DRILLS GRID WITH ALL 11 SETS IN ENGLISH -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" id="drillsGrid">
-                
-                <!-- Card 1: PREP -->
                 <div class="bg-slate-900 border border-amber-800/60 hover:border-amber-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('PREP')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -404,7 +350,6 @@
                     </button>
                 </div>
 
-                <!-- Card 2: SET P 1 -->
                 <div class="bg-slate-900 border border-cyan-800/60 hover:border-cyan-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 1')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -419,7 +364,6 @@
                     </button>
                 </div>
 
-                <!-- Card 3: RECOVERY -->
                 <div class="bg-slate-900 border border-emerald-800/60 hover:border-emerald-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('RECOVERY')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -434,7 +378,6 @@
                     </button>
                 </div>
 
-                <!-- Card 4: SET A 1 -->
                 <div class="bg-slate-900 border border-amber-700/60 hover:border-amber-400 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET A 1')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -449,7 +392,6 @@
                     </button>
                 </div>
 
-                <!-- Card 5: SET B 1 -->
                 <div class="bg-slate-900 border border-rose-800/60 hover:border-rose-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET B 1')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -464,7 +406,6 @@
                     </button>
                 </div>
 
-                <!-- Card 6: SET D 1 -->
                 <div class="bg-slate-900 border border-blue-800/60 hover:border-blue-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET D 1')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -479,7 +420,6 @@
                     </button>
                 </div>
 
-                <!-- Card 7: SET M 1 -->
                 <div class="bg-slate-900 border border-emerald-800/60 hover:border-emerald-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET M 1')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -494,7 +434,6 @@
                     </button>
                 </div>
 
-                <!-- Card 8: SET P 2 -->
                 <div class="bg-slate-900 border border-purple-800/60 hover:border-purple-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 2')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -509,7 +448,6 @@
                     </button>
                 </div>
 
-                <!-- Card 9: SET P 3 -->
                 <div class="bg-slate-900 border border-purple-800/60 hover:border-purple-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 3')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -524,7 +462,6 @@
                     </button>
                 </div>
 
-                <!-- Card 10: SET M 2 -->
                 <div class="bg-slate-900 border border-emerald-800/60 hover:border-emerald-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET M 2')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -539,7 +476,6 @@
                     </button>
                 </div>
 
-                <!-- Card 11: SET P 4 -->
                 <div class="bg-slate-900 border border-cyan-800/60 hover:border-cyan-500 p-5 rounded-2xl transition-all cursor-pointer flex flex-col justify-between" onclick="openSetModal('SET P 4')">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -557,6 +493,7 @@
             </div>
         </div>
 
+        <!-- TAB 3: EXPERIMENTAL LOG -->
         <div id="tab-logs" class="hidden">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                 <div>
@@ -567,7 +504,6 @@
                         Daily laboratory & training journal tracking biomechanical changes & technique versions. Click any <span class="text-cyan-400 font-mono">Set Badge</span> to view details!
                     </p>
                 </div>
-                <!-- Filter by type -->
                 <div class="flex gap-2 flex-wrap">
                     <button onclick="filterLogs('all')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-cyan-500 text-slate-950 font-bold">All Logs</button>
                     <button onclick="filterLogs('Mobility')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-slate-800 text-emerald-400 font-semibold border border-slate-700">Mobility</button>
@@ -576,7 +512,6 @@
                 </div>
             </div>
 
-            <!-- NOTION-STYLE DATABASE TABLE WITH VERSION COLUMN -->
             <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left text-xs border-collapse">
@@ -591,7 +526,6 @@
                             </tr>
                         </thead>
                         <tbody id="logTableBody" class="divide-y divide-slate-800/60 text-slate-200">
-                            <!-- Rows rendered dynamically via JS -->
                         </tbody>
                     </table>
                 </div>
@@ -600,6 +534,7 @@
 
     </main>
 
+    <!-- DRILL EXERCISE MODAL -->
     <div id="setModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
             <div class="p-5 border-b border-slate-800 flex justify-between items-center bg-slate-950">
@@ -612,7 +547,6 @@
                 </button>
             </div>
             <div class="p-6 overflow-y-auto space-y-4 text-xs" id="modalSetBody">
-                <!-- Exercises injected dynamically -->
             </div>
             <div class="p-4 border-t border-slate-800 bg-slate-950 text-right">
                 <button onclick="closeSetModal()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-4 py-2 rounded-xl text-xs transition-colors">
@@ -622,6 +556,7 @@
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer class="border-t border-slate-800 bg-slate-950 py-6 text-center text-xs text-slate-500">
         <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <p>© 2026 The Art of No-Fins. All rights reserved.</p>
@@ -813,7 +748,6 @@
                 if (!tbody) return;
                 tbody.innerHTML = '';
 
-                // Fallback if external data isn't loaded yet
                 const logsList = window.experimentalLogs || [];
 
                 logsList.forEach(log => {
@@ -959,7 +893,6 @@
             }
         }
 
-        // Safe Initialization on Window Load
         window.addEventListener('DOMContentLoaded', function() {
             try {
                 const searchInput = document.getElementById('searchInput');
