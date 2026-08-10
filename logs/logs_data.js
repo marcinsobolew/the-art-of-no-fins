@@ -1,16 +1,12 @@
-// Experimental Training & Biomechanical Logs History (Feb 2026 - July 2026)
+// Experimental Training & Biomechanical Logs History
 window.experimentalLogs = [
     { date: "August 7, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "resistited DL 60kg" },
     { date: "August 5, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "bulgars split sq" },
-    { date: "July 31, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-    { date: "July 31, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-    { date: "July 30, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-    { date: "July 30, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-    { date: "July 28, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-    { date: "July 28, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-    { date: "July 27, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
-    { date: "July 27, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
-    { date: "July 24, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4"], notes: "" },
+    { date: "July 31, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4", "SET M 2"], notes: "" },
+    { date: "July 30, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2", "SET M 2"], notes: "" },
+    { date: "July 28, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4", "SET M 2"], notes: "" },
+    { date: "July 27, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4", "SET M 2"], notes: "" },
+    { date: "July 24, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4", "SET M 2"], notes: "" },
     { date: "July 22, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "bulgar" },
     { date: "July 22, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET M 2"], notes: "" },
     { date: "July 21, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "lunges, knees to chest, hollow body one arm press, snatch and thrusters" },
