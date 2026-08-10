@@ -1,5 +1,7 @@
 // Experimental Training & Biomechanical Logs History
 window.experimentalLogs = [
+    { date: "August 9, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["SET M 2"], notes: "" },
+    { date: "August 8, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["SET M 2"], notes: "" },
     { date: "August 7, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "resistited DL 60kg" },
     { date: "August 5, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "bulgars split sq" },
     { date: "July 31, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4", "SET M 2"], notes: "" },
