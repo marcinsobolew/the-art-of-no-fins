@@ -1,5 +1,14 @@
 // Experimental Training & Biomechanical Logs History
 window.experimentalLogs = [
+    { date: "August 16, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET P 4", "SET M 2", "RECOVERY"], notes: "" },
+    { date: "August 15, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET M 2", "RECOVERY"], notes: "" },
+    { date: "August 14, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4", "SET M 2"], notes: "" },
+    { date: "August 13, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "resistited DL 60kg" },
+    { date: "August 13, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["RECOVERY"], notes: "" },
+    { date: "August 12, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "SET P 4", "SET M 2", "RECOVERY"], notes: "" },
+    { date: "August 11, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "bulgars split sq" },
+    { date: "August 11, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["RECOVERY"], notes: "" },
+    { date: "August 10, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["PREP SHORT", "RECOVERY", "SET P 4", "SET M 2"], notes: "" },
     { date: "August 9, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["SET M 2"], notes: "" },
     { date: "August 8, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["SET M 2"], notes: "" },
     { date: "August 7, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "resistited DL 60kg" },
