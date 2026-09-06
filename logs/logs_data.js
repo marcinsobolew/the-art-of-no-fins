@@ -31,7 +31,7 @@ window.experimentalLogs = [
     { date: "August 8, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["SET M 2", "SET B 1"], notes: "" },
     { date: "August 7, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "resistited DL 60kg" },
     { date: "August 5, 2026", title: "Strenght-Motoric", activity: "Strength & Motoric", version: "—", sets: [], notes: "bulgars split sq" },
-    { date: "August 4, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["SET M 2, "SET B 1""], notes: "" },
+    { date: "August 4, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["SET M 2, "SET B 1"], notes: "" },
     { date: "August 3, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["SET M 2"], notes: "" },
     { date: "August 2, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["SET M 2"], notes: "" },
     { date: "August 1, 2026", title: "Daily Lab Review", activity: "Mobility/Stretching", version: "v1.1 (Legs)", sets: ["SET M 2", "SET B 1"], notes: "" },    
