@@ -40,13 +40,7 @@
                 <div class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></div>
                 <span class="font-montserrat font-bold text-base md:text-lg tracking-wider text-cyan-400">THE ART OF NO-FINS</span>
                 </div>
-        <!-- here will show up add button when you are logged in -->
-                    <div id="admin-controls" class="hidden ml-4">
-                        <button onclick="openLogBuilder()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-3 py-1 rounded-lg text-xs transition-colors">
-                        <i class="fa-solid fa-plus mr-1"></i> Add Entry
-                        </button>
-                    </div>
-            
+                    
             <nav class="flex items-center gap-3 text-xs text-slate-400 font-medium overflow-x-auto py-1">
                 <button onclick="switchTab('technique')" id="nav-technique" class="hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5">TECHNIQUE</button>
                 <span>|</span>
@@ -471,8 +465,15 @@
                         Daily laboratory & training journal tracking biomechanical changes & technique versions. Click any <span class="text-cyan-400 font-mono">Set Badge</span> to view details!
                     </p>
                 </div>
-                <div class="flex gap-2 flex-wrap">
-                    <button onclick="filterLogs('all')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-cyan-500 text-slate-950 font-bold">All Logs</button>
+         <div class="flex gap-2 flex-wrap items-center">
+    <!-- Ukryty przycisk Admina (Add Entry) -->
+                <div id="admin-controls" class="hidden mr-2 border-r border-slate-700 pr-4">
+                        <button onclick="openLogBuilder()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-1.5 rounded-lg text-xs transition-all shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                    <i class="fa-solid fa-plus mr-1"></i> Add Entry
+                        </button>
+                </div>
+    
+    <button onclick="filterLogs('all')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-cyan-500 text-slate-950 font-bold">All Logs</button>
                     <button onclick="filterLogs('Mobility')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-slate-800 text-emerald-400 font-semibold border border-slate-700">Mobility</button>
                     <button onclick="filterLogs('Strength')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-slate-800 text-amber-400 font-semibold border border-slate-700">Strength</button>
                     <button onclick="filterLogs('Progress Note')" class="log-filter-btn px-3 py-1.5 text-xs rounded-lg bg-slate-800 text-purple-400 font-semibold border border-slate-700">Progress Notes</button>
