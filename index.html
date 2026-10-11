@@ -36,10 +36,16 @@
     <!-- NAVIGATION HEADER -->
     <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-3 cursor-pointer" id="admin-trigger">
                 <div class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></div>
                 <span class="font-montserrat font-bold text-base md:text-lg tracking-wider text-cyan-400">THE ART OF NO-FINS</span>
-            </div>
+                </div>
+        <!-- here will show up add button when you are logged in -->
+                    <div id="admin-controls" class="hidden ml-4">
+                        <button onclick="openLogBuilder()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-3 py-1 rounded-lg text-xs transition-colors">
+                        <i class="fa-solid fa-plus mr-1"></i> Add Entry
+                        </button>
+                    </div>
             
             <nav class="flex items-center gap-3 text-xs text-slate-400 font-medium overflow-x-auto py-1">
                 <button onclick="switchTab('technique')" id="nav-technique" class="hover:text-cyan-400 transition-colors text-cyan-400 font-bold border-b-2 border-cyan-400 pb-0.5">TECHNIQUE</button>
@@ -819,6 +825,49 @@
                 console.error("Initialization error:", err);
             }
         });
+    </script>
+    <script>
+    // --- ADMIN MODE LOGIC ---
+    const adminTrigger = document.getElementById('admin-trigger');
+    const adminControls = document.getElementById('admin-controls');
+    
+    // Sprawdzamy przy ładowaniu strony, czy masz już zapisany token
+    if (localStorage.getItem('nofins_gh_token')) {
+        adminControls.classList.remove('hidden');
+    }
+
+    // Ukryte logowanie: kliknij 3 razy szybko w logo, by podać token
+    let clickCount = 0;
+    adminTrigger.addEventListener('click', () => {
+        clickCount++;
+        if (clickCount === 3) {
+            clickCount = 0;
+            const currentToken = localStorage.getItem('nofins_gh_token');
+            if (currentToken) {
+                if(confirm('Jesteś już zalogowany. Czy chcesz się wylogować (usunąć klucz z urządzenia)?')) {
+                    localStorage.removeItem('nofins_gh_token');
+                    adminControls.classList.add('hidden');
+                    alert('Wylogowano.');
+                }
+            } else {
+                const token = prompt('Tryb Admina: Podaj swój GitHub Personal Access Token (ghp_...)');
+                if (token && token.trim().startsWith('ghp_')) {
+                    localStorage.setItem('nofins_gh_token', token.trim());
+                    adminControls.classList.remove('hidden');
+                    alert('Zalogowano pomyślnie. Masz uprawnienia do zapisu.');
+                } else if (token) {
+                    alert('Nieprawidłowy token.');
+                }
+            }
+        }
+        // Reset licznika po 1.5 sekundy
+        setTimeout(() => { clickCount = 0; }, 1500);
+    });
+
+    // Pusta funkcja pod formularz (uzupełnimy w Kroku 3)
+    function openLogBuilder() {
+        alert('Tu wjedzie formularz kreatora. Działa!');
+    }
     </script>
 </body>
 </html>
